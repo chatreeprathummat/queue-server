@@ -1,0 +1,407 @@
+{
+  "info": {
+    "name": "Quotation Scan System API",
+    "description": "API สำหรับระบบใบเสนอราคาและการสแกนเอกสาร",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5009/api/inv",
+      "type": "string"
+    },
+    {
+      "key": "scannerUrl",
+      "value": "http://localhost:3001",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Suppliers",
+      "item": [
+        {
+          "name": "Get All Suppliers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/suppliers",
+              "host": ["{{baseUrl}}"],
+              "path": ["suppliers"]
+            }
+          }
+        },
+        {
+          "name": "Get Active Suppliers",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/suppliers?is_active=true",
+              "host": ["{{baseUrl}}"],
+              "path": ["suppliers"],
+              "query": [
+                {
+                  "key": "is_active",
+                  "value": "true"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Suppliers by Type",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/suppliers?supplier_type=OFFICIAL",
+              "host": ["{{baseUrl}}"],
+              "path": ["suppliers"],
+              "query": [
+                {
+                  "key": "supplier_type",
+                  "value": "OFFICIAL"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Quotations",
+      "item": [
+        {
+          "name": "Get All Quotations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/quotations",
+              "host": ["{{baseUrl}}"],
+              "path": ["quotations"]
+            }
+          }
+        },
+        {
+          "name": "Get Quotations with Pagination",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/quotations?page=1&limit=10",
+              "host": ["{{baseUrl}}"],
+              "path": ["quotations"],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "10"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Quotations by Supplier",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/quotations?supplier_id=1",
+              "host": ["{{baseUrl}}"],
+              "path": ["quotations"],
+              "query": [
+                {
+                  "key": "supplier_id",
+                  "value": "1"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Quotation by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/quotation/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["quotation", "1"]
+            }
+          }
+        },
+        {
+          "name": "Create Quotation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"supplier_id\": 1,\n  \"quotation_number\": \"QT-2024-001\",\n  \"quotation_date\": \"2024-01-15\",\n  \"valid_until\": \"2024-02-15\",\n  \"total_amount\": 50000,\n  \"currency\": \"THB\",\n  \"terms_conditions\": \"ชำระเงินภายใน 30 วัน\",\n  \"notes\": \"ใบเสนอราคาสำหรับอุปกรณ์คอมพิวเตอร์\",\n  \"created_by_user_id\": \"admin\",\n  \"items\": [\n    {\n      \"item_sequence\": 1,\n      \"description\": \"เครื่องคอมพิวเตอร์ Desktop\",\n      \"specification\": \"Intel i7, 16GB RAM, 512GB SSD\",\n      \"unit\": \"เครื่อง\",\n      \"quantity\": 5,\n      \"unit_price\": 25000,\n      \"delivery_time\": \"7 วัน\",\n      \"warranty\": \"3 ปี\",\n      \"notes\": \"รวมโปรแกรมพื้นฐาน\"\n    },\n    {\n      \"item_sequence\": 2,\n      \"description\": \"จอภาพ LCD\",\n      \"specification\": \"24 นิ้ว, Full HD\",\n      \"unit\": \"เครื่อง\",\n      \"quantity\": 5,\n      \"unit_price\": 5000,\n      \"delivery_time\": \"7 วัน\",\n      \"warranty\": \"1 ปี\",\n      \"notes\": \"สีดำ\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/create-quotation",
+              "host": ["{{baseUrl}}"],
+              "path": ["create-quotation"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Attachments",
+      "item": [
+        {
+          "name": "Upload Attachment",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "file",
+                  "type": "file",
+                  "src": []
+                },
+                {
+                  "key": "uploaded_by_user_id",
+                  "value": "admin",
+                  "type": "text"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/quotation/1/upload",
+              "host": ["{{baseUrl}}"],
+              "path": ["quotation", "1", "upload"]
+            }
+          }
+        },
+        {
+          "name": "Upload from Scanner",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quotationId\": 1,\n  \"uploaded_by_user_id\": \"admin\",\n  \"fileData\": {\n    \"name\": \"scanned_document.pdf\",\n    \"base64\": \"JVBERi0xLjQKJcOkw7zDtsO...\",\n    \"size\": 1024000,\n    \"type\": \"pdf\"\n  }\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/upload-from-scanner",
+              "host": ["{{baseUrl}}"],
+              "path": ["upload-from-scanner"]
+            }
+          }
+        },
+        {
+          "name": "Delete Attachment",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"deleted_by_user_id\": \"admin\",\n  \"delete_reason\": \"ไฟล์ไม่ถูกต้อง\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/attachment/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["attachment", "1"]
+            }
+          }
+        },
+        {
+          "name": "Download Attachment",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/attachment/1/download",
+              "host": ["{{baseUrl}}"],
+              "path": ["attachment", "1", "download"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Scanner Integration",
+      "item": [
+        {
+          "name": "Get Scanner Files",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/scanner-files",
+              "host": ["{{baseUrl}}"],
+              "path": ["scanner-files"]
+            }
+          }
+        },
+        {
+          "name": "Check Scanner Connection",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{scannerUrl}}/api/status",
+              "host": ["{{scannerUrl}}"],
+              "path": ["api", "status"]
+            }
+          }
+        },
+        {
+          "name": "Get Scanner Devices",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{scannerUrl}}/api/devices",
+              "host": ["{{scannerUrl}}"],
+              "path": ["api", "devices"]
+            }
+          }
+        },
+        {
+          "name": "Start Scan",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"device\": \"auto\",\n  \"format\": \"pdf\",\n  \"dpi\": 300,\n  \"color\": \"color\",\n  \"outputName\": \"test_scan\",\n  \"pdfMode\": \"single\",\n  \"pageSize\": \"auto\",\n  \"compression\": {\n    \"jpegQuality\": 75,\n    \"tiffCompression\": \"lzw\"\n  },\n  \"fileSizeLimits\": {\n    \"maxFileSize\": null,\n    \"maxFolderSize\": null\n  }\n}"
+            },
+            "url": {
+              "raw": "{{scannerUrl}}/api/scan",
+              "host": ["{{scannerUrl}}"],
+              "path": ["api", "scan"]
+            }
+          }
+        },
+        {
+          "name": "Stop Scan",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "{{scannerUrl}}/api/stop",
+              "host": ["{{scannerUrl}}"],
+              "path": ["api", "stop"]
+            }
+          }
+        },
+        {
+          "name": "Get Scanned Files",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{scannerUrl}}/api/files",
+              "host": ["{{scannerUrl}}"],
+              "path": ["api", "files"]
+            }
+          }
+        },
+        {
+          "name": "Delete All Files",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{scannerUrl}}/api/files",
+              "host": ["{{scannerUrl}}"],
+              "path": ["api", "files"]
+            }
+          }
+        },
+        {
+          "name": "Download File",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{scannerUrl}}/files/test_scan.pdf",
+              "host": ["{{scannerUrl}}"],
+              "path": ["files", "test_scan.pdf"]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Test Data",
+      "item": [
+        {
+          "name": "Create Test Supplier",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"supplier_code\": \"SUP001\",\n  \"supplier_name\": \"บริษัท เทสต์ จำกัด\",\n  \"supplier_type\": \"OFFICIAL\",\n  \"tax_id\": \"0123456789012\",\n  \"phone\": \"02-123-4567\",\n  \"email\": \"test@example.com\",\n  \"contact_person\": \"คุณทดสอบ\",\n  \"address\": \"123 ถนนทดสอบ แขวงทดสอบ เขตทดสอบ กรุงเทพฯ 10000\",\n  \"is_active\": true,\n  \"created_by_user_id\": \"admin\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/create-supplier",
+              "host": ["{{baseUrl}}"],
+              "path": ["create-supplier"]
+            }
+          }
+        },
+        {
+          "name": "Create Test Quotation",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"supplier_id\": 1,\n  \"quotation_number\": \"QT-TEST-001\",\n  \"quotation_date\": \"2024-01-15\",\n  \"valid_until\": \"2024-02-15\",\n  \"total_amount\": 100000,\n  \"currency\": \"THB\",\n  \"terms_conditions\": \"ชำระเงินภายใน 30 วัน\",\n  \"notes\": \"ใบเสนอราคาทดสอบ\",\n  \"created_by_user_id\": \"admin\",\n  \"items\": [\n    {\n      \"item_sequence\": 1,\n      \"description\": \"สินค้าทดสอบ 1\",\n      \"specification\": \"รายละเอียดสินค้า 1\",\n      \"unit\": \"ชิ้น\",\n      \"quantity\": 10,\n      \"unit_price\": 5000,\n      \"delivery_time\": \"7 วัน\",\n      \"warranty\": \"1 ปี\",\n      \"notes\": \"หมายเหตุสินค้า 1\"\n    },\n    {\n      \"item_sequence\": 2,\n      \"description\": \"สินค้าทดสอบ 2\",\n      \"specification\": \"รายละเอียดสินค้า 2\",\n      \"unit\": \"ชุด\",\n      \"quantity\": 5,\n      \"unit_price\": 10000,\n      \"delivery_time\": \"14 วัน\",\n      \"warranty\": \"2 ปี\",\n      \"notes\": \"หมายเหตุสินค้า 2\"\n    }\n  ]\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/create-quotation",
+              "host": ["{{baseUrl}}"],
+              "path": ["create-quotation"]
+            }
+          }
+        }
+      ]
+    }
+  ]
+} 

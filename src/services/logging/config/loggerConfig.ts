@@ -1,0 +1,219 @@
+import path from 'path';
+
+// Import with require for modules without type declarations
+const winston = require('winston') as any;
+const { wrapLoggerObject } = require('../safeLogger') as any;
+
+// Type definitions
+interface LogPaths {
+  [key: string]: {
+    info: string;
+    error: string;
+  };
+}
+
+interface LogLevels {
+  connection: string;
+  request: string;
+  system: string;
+  generatePlan: string;
+  auth: string;
+}
+
+interface LogLevelConfig {
+  development: LogLevels;
+  production: LogLevels;
+}
+
+/**
+ * สร้างชื่อไฟล์ log ตามวันที่ปัจจุบัน
+ */
+function getLogFileName(baseName: string): string {
+  const today = new Date();
+  const dateStr = today.toISOString().split('T')[0]; // YYYY-MM-DD
+  return `${baseName}-${dateStr}.log`;
+}
+
+/**
+ * กำหนดรูปแบบ log สำหรับการบันทึกลงไฟล์
+ * - เพิ่ม timestamp รูปแบบ YYYY-MM-DD HH:mm:ss
+ * - แปลงเป็น JSON format
+ */
+const logFormat = winston.format.combine(
+  winston.format.timestamp({
+    format: 'YYYY-MM-DD HH:mm:ss'
+  }),
+  winston.format.json()
+);
+
+/**
+ * กำหนดรูปแบบ log สำหรับแสดงใน console
+ * - เพิ่มสี
+ * - แสดงผลแบบ simple format
+ */
+const consoleFormat = winston.format.combine(
+  winston.format.colorize(),
+  winston.format.simple()
+);
+
+// ตรวจสอบ environment สำหรับการตั้งค่า logging level
+const isDevelopment = process.env.NODE_ENV === 'development';
+const isProduction = process.env.NODE_ENV === 'production';
+
+// กำหนด log levels ตาม environment
+const LOG_LEVELS: LogLevelConfig = {
+  development: {
+    connection: 'debug',  // debug ทุกอย่างใน development
+    request: 'debug',
+    system: 'debug',
+    generatePlan: 'info',  // เพิ่มจาก error เป็น info
+    auth: 'debug'
+  },
+  production: {
+    connection: 'warn',   // production ใช้ระดับสูงกว่า
+    request: 'info',
+    system: 'info',
+    generatePlan: 'error',
+    auth: 'info'
+  }
+};
+
+const currentLevels = isDevelopment ? LOG_LEVELS.development : LOG_LEVELS.production;
+
+// Logger configuration console output ถูกปิดใช้งาน
+// console.log(`[Logger Config] Environment: ${process.env.NODE_ENV}, isDevelopment: ${isDevelopment}`);
+// console.log(`[Logger Config] Log Levels:`, currentLevels);
+
+/**
+ * สร้าง transports array ตาม environment
+ */
+function createTransports(logType: string, level: string): any[] {
+  const transports: any[] = [];
+  
+  // File transports (ทุก environment)
+  const logPaths: LogPaths = {
+    connection: {
+      info: path.join(__dirname, '../../../logs/connection/', getLogFileName('connection')),
+      error: path.join(__dirname, '../../../logs/connection/', getLogFileName('connection-error'))
+    },
+    request: {
+      info: path.join(__dirname, '../../../logs/request/', getLogFileName('request')),
+      error: path.join(__dirname, '../../../logs/request/', getLogFileName('request-error'))
+    },
+    system: {
+      info: path.join(__dirname, '../../../logs/system/', getLogFileName('system')),
+      error: path.join(__dirname, '../../../logs/system/', getLogFileName('system-error'))
+    },
+    generatePlan: {
+      info: path.join(__dirname, '../../../logs/auto-generate/', getLogFileName('generate-plan')),
+      error: path.join(__dirname, '../../../logs/auto-generate/', getLogFileName('generate-plan-error'))
+    },
+    auth: {
+      info: path.join(__dirname, '../../../logs/system/', getLogFileName('auth')),
+      error: path.join(__dirname, '../../../logs/system/', getLogFileName('auth-error'))
+    }
+  };
+
+  // เพิ่ม file transports
+  if (logPaths[logType]) {
+    // Info level file
+    transports.push(new winston.transports.File({ 
+      filename: logPaths[logType].info,
+      level: 'debug'  // เก็บทุก level ลงไฟล์
+    }));
+    
+    // Error level file (แยกไฟล์)
+    transports.push(new winston.transports.File({ 
+      filename: logPaths[logType].error,
+      level: 'error'
+    }));
+  }
+
+  // Console transport ถูกปิดใช้งาน - บันทึกเฉพาะลงไฟล์
+  // if (isDevelopment && logType !== 'connection') {
+  //   transports.push(new winston.transports.Console({
+  //     format: winston.format.combine(
+  //       winston.format.colorize(),
+  //       winston.format.timestamp({
+  //         format: 'YYYY-MM-DD HH:mm:ss'  // เพิ่มรูปแบบ timestamp
+  //       }),
+  //       winston.format.printf(({ timestamp, level, message, ...meta }) => {
+  //         const metaString = Object.keys(meta).length ? ` ${JSON.stringify(meta)}` : '';
+  //         return `[${timestamp}] [${logType.toUpperCase()}] ${level}: ${message}${metaString}`;
+  //       })
+  //     ),
+  //     level: level  // ใช้ level ที่กำหนด
+  //   }));
+  // }
+
+  return transports;
+}
+
+/**
+ * สร้าง winston logger instances (Original)
+ * จัดระเบียบแยกโฟลเดอร์ตามประเภท:
+ * - auto-generate/: สำหรับบันทึก log การ generate plan
+ * - request/: สำหรับบันทึก log การเรียก API
+ * - connection/: สำหรับบันทึก log เกี่ยวกับ database connection
+ * - system/: สำหรับบันทึก log ระบบทั่วไป
+ */
+const originalLogger = {
+  // Generate Plan Logs - เก็บในโฟลเดอร์ auto-generate
+  generatePlan: winston.createLogger({
+    level: currentLevels.generatePlan,
+    format: logFormat,
+    transports: createTransports('generatePlan', currentLevels.generatePlan)
+  }),
+
+  // Request Logs - เก็บในโฟลเดอร์ request
+  request: winston.createLogger({
+    level: currentLevels.request,
+    format: logFormat,
+    transports: createTransports('request', currentLevels.request)
+  }),
+
+  // Connection Logs - เก็บในโฟลเดอร์ connection  
+  connection: winston.createLogger({
+    level: currentLevels.connection,
+    format: logFormat,
+    transports: createTransports('connection', currentLevels.connection)
+  }),
+
+  // System Logs - เก็บในโฟลเดอร์ system
+  system: winston.createLogger({
+    level: currentLevels.system,
+    format: logFormat,
+    transports: createTransports('system', currentLevels.system)
+  }),
+
+  // Authentication Logs
+  auth: winston.createLogger({
+    level: currentLevels.auth,
+    format: logFormat,
+    transports: createTransports('auth', currentLevels.auth)
+  })
+};
+
+/**
+ * สร้าง Safe Logger instances ที่ครอบ winston loggers
+ * ใช้ SafeLogger pattern เพื่อป้องกันไม่ให้ logging errors กระทบระบบหลัก
+ */
+const safeLogger = wrapLoggerObject(originalLogger);
+
+// Logger configuration summary ถูกปิดใช้งาน
+// console.log(`[Logger Config] Loggers created with levels:
+//   - connection: ${currentLevels.connection}
+//   - request: ${currentLevels.request}
+//   - system: ${currentLevels.system}
+//   - generatePlan: ${currentLevels.generatePlan}
+//   - auth: ${currentLevels.auth}
+//   - Console output: ${isDevelopment ? 'enabled' : 'disabled'}`);
+
+// Export ทั้ง safe logger และ original logger (สำหรับกรณีฉุกเฉิน)
+export default safeLogger;
+export {
+  originalLogger as original,
+  getLogFileName,
+  LOG_LEVELS,
+  currentLevels
+}; 

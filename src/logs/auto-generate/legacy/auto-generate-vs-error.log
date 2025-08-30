@@ -1,0 +1,16 @@
+[2025-04-07 18:47:39] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - vsAssignsService.generateVSPlanId is not a function
+[2025-04-07 18:47:39] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - vsAssignsService.generateVSPlanId is not a function
+[2025-04-08 00:00:25] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - vsAssignsService.generateVSPlanId is not a function
+[2025-04-08 00:00:25] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - vsAssignsService.generateVSPlanId is not a function
+[2025-04-08 00:01:34] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - vsAssignsService.generateVSPlanId is not a function
+[2025-04-08 00:01:34] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - vsAssignsService.generateVSPlanId is not a function
+[2025-04-08 00:10:45] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - vsAssignsService.generateVSPlanId is not a function
+[2025-04-08 00:11:57] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - vsAssignsService.generateVSPlanId is not a function
+[2025-04-08 00:14:16] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - vsAssignsService.generateId is not a function
+[2025-04-08 00:15:26] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - vsAssignsService.buildPlanDetail is not a function
+[2025-04-08 00:16:41] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - vsAssignsService.buildVSPlanDetail is not a function
+[2025-04-08 00:18:04] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - vsAssignsService.buildVSPlanDetail is not a function
+[2025-04-08 00:19:20] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - Unknown column 'executedStatus' in 'field list'
+[2025-04-08 00:20:07] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - Unknown column 'executed_status' in 'field list'
+[2025-04-08 00:20:57] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - Unknown column 'executed_status' in 'field list'
+[2025-04-08 00:50:31] เกิดข้อผิดพลาดในการ Auto Generate VS Plan: Table 'sgh2.tbl_patient_info' doesn't exist

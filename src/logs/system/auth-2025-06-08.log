@@ -1,0 +1,4 @@
+{"action":"token_validation","level":"debug","message":"Auth debug info","timestamp":"2025-06-08 15:14:14","tokenType":"access_token","userId":"test-user"}
+{"ip":"192.168.1.100","level":"info","loginTime":"2025-06-08T08:14:14.733Z","message":"User login successful","timestamp":"2025-06-08 15:14:14","userAgent":"Mozilla/5.0 Test Browser","username":"test_user"}
+{"attemptCount":3,"ip":"192.168.1.200","level":"warn","message":"Suspicious login attempt","reason":"multiple_failed_attempts","timestamp":"2025-06-08 15:14:14","username":"admin"}
+{"blocked":true,"ip":"10.0.0.1","level":"error","message":"Authentication failed","reason":"invalid_credentials","timestamp":"2025-06-08 15:14:14","username":"hacker"}

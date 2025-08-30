@@ -1,0 +1,1 @@
+{"error":"Internal server error for testing","level":"error","message":"API request failed","method":"POST","status":500,"timestamp":"2025-06-08 15:14:14","url":"/api/test/error"}

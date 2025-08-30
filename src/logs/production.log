@@ -1,0 +1,44 @@
+กำลังโหลดไฟล์ environment (production) จาก: D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\config\production.env
+การตั้งค่าเซิร์ฟเวอร์: {
+  https_enabled: true,
+  http_port: '5009',
+  https_port: 5443,
+  cert_path: './config/certs/production/cert.pem',
+  key_path: './config/certs/production/key.pem'
+}
+[2025-06-09 10:12:02] ManagementDB: กำลังสร้าง instance ใหม่
+[2025-06-09 10:12:02] เริ่มต้น cleanup scheduler ทุก 5 นาที
+[2025-06-09 10:12:02] เริ่มต้น status monitoring ทุก 2 นาที
+[2025-06-09 10:12:02] ManagementDB: พร้อมใช้งาน (Connection Limit: 20)
+[2025-06-09 10:12:02] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+[2025-06-09 10:12:02] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+ประเภทข้อมูล HTTPS_ENABLED: string
+ค่า HTTPS_PORT: 5443
+ค่า HTTPS_ENABLED: true
+ค่า CERT_PATH: ./config/certs/production/cert.pem
+ค่า KEY_PATH: ./config/certs/production/key.pem
+[กำหนดค่า] NODE_ENV: production, isDevelopment: false
+[กำหนดค่า] Morgan Format: [:datetime-th] :method :url :status - :response-time ms
+[2025-06-09 10:12:02] เริ่มต้นระบบ Cron Jobs
+[2025-06-09 10:12:02] Cron Jobs ถูกตั้งค่าแล้ว:
+[2025-06-09 10:12:02] Generate Plan: 1 0 * * * (ทำงานทุกวันเวลา 00:01 น.)
+กำลังอ่านไฟล์ใบรับรองจาก: {
+  cert: 'D:\\project\\sgh-project\\vs-project\\dev\\nursing-system\\nursing-server\\production-build\\config\\certs\\production\\cert.pem',
+  key: 'D:\\project\\sgh-project\\vs-project\\dev\\nursing-system\\nursing-server\\production-build\\config\\certs\\production\\key.pem'
+}
+[2025-06-09 10:12:03] เซิร์ฟเวอร์ HTTP เริ่มต้นที่พอร์ต 5009
+[2025-06-09 10:12:03] เซิร์ฟเวอร์ HTTPS เริ่มต้นที่พอร์ต 5443
+[Server Start] เคลียร์ connection ที่ค้างอยู่เรียบร้อย
+[2025-06-09 10:12:14] GET /api/health 200 - 4.196 ms
+[2025-06-09 10:12:24] GET /api/health 200 - 1.365 ms
+[2025-06-09 10:17:02] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+[2025-06-09 10:17:02] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+[2025-06-09 10:19:51] GET /api/health 200 - 0.869 ms
+[2025-06-09 10:22:02] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+[2025-06-09 10:22:02] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+[2025-06-09 10:27:02] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+[2025-06-09 10:27:02] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+[2025-06-09 10:32:02] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+[2025-06-09 10:32:02] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+[2025-06-09 10:32:27] GET /api/health 200 - 0.533 ms
+[2025-06-09 10:32:52] GET /api/health 200 - 0.700 ms

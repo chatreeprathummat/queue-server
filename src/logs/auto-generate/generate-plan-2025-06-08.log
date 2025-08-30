@@ -1,0 +1,4 @@
+{"an":"test/1234","level":"debug","message":"Plan generation debug","planType":"VS","step":"data_validation","timestamp":"2025-06-08 15:14:14"}
+{"level":"info","message":"Plan generation started","operator":"auto_system","planType":"NC","startTime":"2025-06-08T08:14:14.733Z","timestamp":"2025-06-08 15:14:14","totalPatients":25}
+{"an":"test/5678","impact":"reduced_plan_quality","level":"warn","message":"Plan generation warning","planType":"VS","timestamp":"2025-06-08 15:14:14","warning":"missing_optional_data"}
+{"an":"test/9999","details":"Patient vitals not found","error":"required_data_missing","level":"error","message":"Plan generation failed","planType":"NC","timestamp":"2025-06-08 15:14:14"}

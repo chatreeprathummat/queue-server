@@ -1,0 +1,7 @@
+[2025-04-07 18:47:39] เกิดข้อผิดพลาดในการบันทึกสถิติ: Table 'sgh2.tbl_ur_autogeneratestats' doesn't exist
+[2025-04-08 00:00:25] เกิดข้อผิดพลาดในการบันทึกสถิติ: Table 'sgh2.tbl_ur_autogeneratestats' doesn't exist
+[2025-04-08 00:01:34] เกิดข้อผิดพลาดในการบันทึกสถิติ: Table 'sgh2.tbl_ur_autogeneratestats' doesn't exist
+[2025-04-08 00:10:45] เกิดข้อผิดพลาดในการบันทึกสถิติ: Unknown column 'date' in 'field list'
+[2025-04-08 00:11:57] เกิดข้อผิดพลาดในการบันทึกสถิติ: Unknown column 'date' in 'field list'
+[2025-04-08 00:14:16] เกิดข้อผิดพลาดในการบันทึกสถิติ: Unknown column 'user_created' in 'field list'
+[2025-04-08 00:15:26] เกิดข้อผิดพลาดในการบันทึกสถิติ: Unknown column 'user_created' in 'field list'

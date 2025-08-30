@@ -1,0 +1,320 @@
+{"event":"connection_established","level":"info","message":"New MySQL connection established","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":1,"connectionId":"conn_1750402476940_zc8in","connectionLimit":25,"duration":"70ms","event":"connection_created","level":"info","message":"Database connection created","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_established","level":"info","message":"New MySQL connection established","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":2,"connectionId":"conn_1750402477083_bkk0y","connectionLimit":25,"duration":"3ms","event":"connection_created","level":"info","message":"Database connection created","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":1,"connectionId":"conn_1750402477083_bkk0y","context":"unknown","duration":"30ms","event":"connection_released","level":"info","message":"Database connection released","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":2,"connectionId":"conn_1750402477149_g4q3o","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":1,"connectionId":"conn_1750402477149_g4q3o","context":"unknown","duration":"37ms","event":"connection_released","level":"info","message":"Database connection released","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":0,"connectionId":"conn_1750402476940_zc8in","context":"unknown","duration":"178ms","event":"connection_released","level":"info","message":"Database connection released","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":1,"connectionId":"conn_1750402477197_zkcnr","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":2,"connectionId":"conn_1750402477251_cibr2","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":1,"connectionId":"conn_1750402477251_cibr2","context":"unknown","duration":"5ms","event":"connection_released","level":"info","message":"Database connection released","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":2,"connectionId":"conn_1750402477278_czc2e","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":1,"connectionId":"conn_1750402477278_czc2e","context":"unknown","duration":"5ms","event":"connection_released","level":"info","message":"Database connection released","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":2,"connectionId":"conn_1750402477302_nehd6","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":1,"connectionId":"conn_1750402477302_nehd6","context":"unknown","duration":"5ms","event":"connection_released","level":"info","message":"Database connection released","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":2,"connectionId":"conn_1750402477321_4xn3x","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":1,"connectionId":"conn_1750402477321_4xn3x","context":"unknown","duration":"9ms","event":"connection_released","level":"info","message":"Database connection released","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":38,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":0,"connectionId":"conn_1750402477197_zkcnr","context":"unknown","duration":"134ms","event":"connection_released","level":"info","message":"Database connection released","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":1,"connectionId":"conn_1750402477338_h91il","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":0,"connectionId":"conn_1750402477338_h91il","context":"unknown","duration":"12ms","event":"connection_released","level":"info","message":"Database connection released","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":1,"connectionId":"conn_1750402477356_n1wia","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"activeConnections":0,"connectionId":"conn_1750402477356_n1wia","context":"unknown","duration":"11ms","event":"connection_released","level":"info","message":"Database connection released","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":37,"timestamp":"2025-06-20 13:54:37"}
+{"event":"connection_established","level":"info","message":"New MySQL connection established","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":1,"connectionId":"conn_1750402696188_4bp3d","connectionLimit":25,"duration":"38ms","event":"connection_created","level":"info","message":"Database connection created","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_established","level":"info","message":"New MySQL connection established","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":2,"connectionId":"conn_1750402696252_zk1t0","connectionLimit":25,"duration":"5ms","event":"connection_created","level":"info","message":"Database connection created","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":1,"connectionId":"conn_1750402696252_zk1t0","context":"unknown","duration":"9ms","event":"connection_released","level":"info","message":"Database connection released","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":0,"connectionId":"conn_1750402696188_4bp3d","context":"unknown","duration":"41ms","event":"connection_released","level":"info","message":"Database connection released","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":1,"connectionId":"conn_1750402696273_f38ip","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":2,"connectionId":"conn_1750402696300_r0v4l","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":1,"connectionId":"conn_1750402696300_r0v4l","context":"unknown","duration":"5ms","event":"connection_released","level":"info","message":"Database connection released","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":2,"connectionId":"conn_1750402696336_b3mx9","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":1,"connectionId":"conn_1750402696336_b3mx9","context":"unknown","duration":"4ms","event":"connection_released","level":"info","message":"Database connection released","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":2,"connectionId":"conn_1750402696355_56tr7","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":1,"connectionId":"conn_1750402696355_56tr7","context":"unknown","duration":"3ms","event":"connection_released","level":"info","message":"Database connection released","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":2,"connectionId":"conn_1750402696373_9la4t","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":1,"connectionId":"conn_1750402696373_9la4t","context":"unknown","duration":"3ms","event":"connection_released","level":"info","message":"Database connection released","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":2,"connectionId":"conn_1750402696389_6h32g","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":1,"connectionId":"conn_1750402696389_6h32g","context":"unknown","duration":"5ms","event":"connection_released","level":"info","message":"Database connection released","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":41,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":0,"connectionId":"conn_1750402696273_f38ip","context":"unknown","duration":"121ms","event":"connection_released","level":"info","message":"Database connection released","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":1,"connectionId":"conn_1750402696405_cnngh","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":0,"connectionId":"conn_1750402696405_cnngh","context":"unknown","duration":"5ms","event":"connection_released","level":"info","message":"Database connection released","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":1,"connectionId":"conn_1750402696423_un6oo","connectionLimit":25,"duration":"1ms","event":"connection_created","level":"info","message":"Database connection created","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"activeConnections":0,"connectionId":"conn_1750402696423_un6oo","context":"unknown","duration":"4ms","event":"connection_released","level":"info","message":"Database connection released","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":40,"timestamp":"2025-06-20 13:58:16"}
+{"event":"connection_established","level":"info","message":"New MySQL connection established","threadId":44,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":44,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":1,"connectionId":"conn_1750404083758_iwxba","connectionLimit":25,"duration":"44ms","event":"connection_created","level":"info","message":"Database connection created","threadId":44,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_established","level":"info","message":"New MySQL connection established","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":2,"connectionId":"conn_1750404083828_ipz7p","connectionLimit":25,"duration":"4ms","event":"connection_created","level":"info","message":"Database connection created","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":1,"connectionId":"conn_1750404083828_ipz7p","context":"unknown","duration":"9ms","event":"connection_released","level":"info","message":"Database connection released","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":0,"connectionId":"conn_1750404083758_iwxba","context":"unknown","duration":"39ms","event":"connection_released","level":"info","message":"Database connection released","threadId":44,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":44,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":44,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":1,"connectionId":"conn_1750404083846_jjp2d","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":44,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":2,"connectionId":"conn_1750404083874_w2qr3","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":1,"connectionId":"conn_1750404083874_w2qr3","context":"unknown","duration":"4ms","event":"connection_released","level":"info","message":"Database connection released","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":2,"connectionId":"conn_1750404083895_5stz9","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":1,"connectionId":"conn_1750404083895_5stz9","context":"unknown","duration":"4ms","event":"connection_released","level":"info","message":"Database connection released","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":2,"connectionId":"conn_1750404083929_c4ekp","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":1,"connectionId":"conn_1750404083929_c4ekp","context":"unknown","duration":"5ms","event":"connection_released","level":"info","message":"Database connection released","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":2,"connectionId":"conn_1750404083945_kqkeb","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":1,"connectionId":"conn_1750404083945_kqkeb","context":"unknown","duration":"4ms","event":"connection_released","level":"info","message":"Database connection released","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":2,"connectionId":"conn_1750404083962_5zrjx","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":1,"connectionId":"conn_1750404083962_5zrjx","context":"unknown","duration":"5ms","event":"connection_released","level":"info","message":"Database connection released","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":2,"connectionId":"conn_1750404083978_xhuir","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":1,"connectionId":"conn_1750404083978_xhuir","context":"unknown","duration":"9ms","event":"connection_released","level":"info","message":"Database connection released","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":45,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":0,"connectionId":"conn_1750404083846_jjp2d","context":"unknown","duration":"142ms","event":"connection_released","level":"info","message":"Database connection released","threadId":44,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":44,"timestamp":"2025-06-20 14:21:23"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":44,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":1,"connectionId":"conn_1750404083993_52dly","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":44,"timestamp":"2025-06-20 14:21:23"}
+{"activeConnections":0,"connectionId":"conn_1750404083993_52dly","context":"unknown","duration":"11ms","event":"connection_released","level":"info","message":"Database connection released","threadId":44,"timestamp":"2025-06-20 14:21:24"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":44,"timestamp":"2025-06-20 14:21:24"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":44,"timestamp":"2025-06-20 14:21:24"}
+{"activeConnections":1,"connectionId":"conn_1750404084009_sr583","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":44,"timestamp":"2025-06-20 14:21:24"}
+{"activeConnections":0,"connectionId":"conn_1750404084009_sr583","context":"unknown","duration":"9ms","event":"connection_released","level":"info","message":"Database connection released","threadId":44,"timestamp":"2025-06-20 14:21:24"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":44,"timestamp":"2025-06-20 14:21:24"}
+{"event":"connection_established","level":"info","message":"New MySQL connection established","threadId":47,"timestamp":"2025-06-20 14:40:41"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":47,"timestamp":"2025-06-20 14:40:41"}
+{"activeConnections":1,"connectionId":"conn_1750405241902_og6uo","connectionLimit":25,"duration":"39ms","event":"connection_created","level":"info","message":"Database connection created","threadId":47,"timestamp":"2025-06-20 14:40:41"}
+{"event":"connection_established","level":"info","message":"New MySQL connection established","threadId":48,"timestamp":"2025-06-20 14:40:41"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":48,"timestamp":"2025-06-20 14:40:41"}
+{"activeConnections":2,"connectionId":"conn_1750405241972_jc3gz","connectionLimit":25,"duration":"14ms","event":"connection_created","level":"info","message":"Database connection created","threadId":48,"timestamp":"2025-06-20 14:40:41"}
+{"activeConnections":1,"connectionId":"conn_1750405241972_jc3gz","context":"unknown","duration":"12ms","event":"connection_released","level":"info","message":"Database connection released","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":0,"connectionId":"conn_1750405241902_og6uo","context":"unknown","duration":"58ms","event":"connection_released","level":"info","message":"Database connection released","threadId":47,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":47,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":47,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":1,"connectionId":"conn_1750405242003_zlm19","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":47,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":2,"connectionId":"conn_1750405242029_8s1ao","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":1,"connectionId":"conn_1750405242029_8s1ao","context":"unknown","duration":"5ms","event":"connection_released","level":"info","message":"Database connection released","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":2,"connectionId":"conn_1750405242051_paikt","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":1,"connectionId":"conn_1750405242051_paikt","context":"unknown","duration":"2ms","event":"connection_released","level":"info","message":"Database connection released","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":2,"connectionId":"conn_1750405242075_1q712","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":1,"connectionId":"conn_1750405242075_1q712","context":"unknown","duration":"3ms","event":"connection_released","level":"info","message":"Database connection released","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":2,"connectionId":"conn_1750405242089_xfw1p","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":1,"connectionId":"conn_1750405242089_xfw1p","context":"unknown","duration":"2ms","event":"connection_released","level":"info","message":"Database connection released","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":2,"connectionId":"conn_1750405242102_5qsrd","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":1,"connectionId":"conn_1750405242102_5qsrd","context":"unknown","duration":"2ms","event":"connection_released","level":"info","message":"Database connection released","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":2,"connectionId":"conn_1750405242116_rj0sw","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":1,"connectionId":"conn_1750405242116_rj0sw","context":"unknown","duration":"4ms","event":"connection_released","level":"info","message":"Database connection released","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":48,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":0,"connectionId":"conn_1750405242003_zlm19","context":"unknown","duration":"117ms","event":"connection_released","level":"info","message":"Database connection released","threadId":47,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":47,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":47,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":1,"connectionId":"conn_1750405242129_tmnll","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":47,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":0,"connectionId":"conn_1750405242129_tmnll","context":"unknown","duration":"6ms","event":"connection_released","level":"info","message":"Database connection released","threadId":47,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":47,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":47,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":1,"connectionId":"conn_1750405242140_ydkq6","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":47,"timestamp":"2025-06-20 14:40:42"}
+{"activeConnections":0,"connectionId":"conn_1750405242140_ydkq6","context":"unknown","duration":"8ms","event":"connection_released","level":"info","message":"Database connection released","threadId":47,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":47,"timestamp":"2025-06-20 14:40:42"}
+{"event":"connection_established","level":"info","message":"New MySQL connection established","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":1,"connectionId":"conn_1750406960601_7p4d8","connectionLimit":25,"duration":"48ms","event":"connection_created","level":"info","message":"Database connection created","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_established","level":"info","message":"New MySQL connection established","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":2,"connectionId":"conn_1750406960681_vqqxj","connectionLimit":25,"duration":"3ms","event":"connection_created","level":"info","message":"Database connection created","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":1,"connectionId":"conn_1750406960681_vqqxj","context":"unknown","duration":"16ms","event":"connection_released","level":"info","message":"Database connection released","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":0,"connectionId":"conn_1750406960601_7p4d8","context":"unknown","duration":"52ms","event":"connection_released","level":"info","message":"Database connection released","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":1,"connectionId":"conn_1750406960709_mgstk","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":2,"connectionId":"conn_1750406960740_x9whw","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":1,"connectionId":"conn_1750406960740_x9whw","context":"unknown","duration":"3ms","event":"connection_released","level":"info","message":"Database connection released","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":2,"connectionId":"conn_1750406960759_lvcfj","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":1,"connectionId":"conn_1750406960759_lvcfj","context":"unknown","duration":"4ms","event":"connection_released","level":"info","message":"Database connection released","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":2,"connectionId":"conn_1750406960791_92bfw","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":1,"connectionId":"conn_1750406960791_92bfw","context":"unknown","duration":"4ms","event":"connection_released","level":"info","message":"Database connection released","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":2,"connectionId":"conn_1750406960808_bnwwx","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":1,"connectionId":"conn_1750406960808_bnwwx","context":"unknown","duration":"2ms","event":"connection_released","level":"info","message":"Database connection released","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":2,"connectionId":"conn_1750406960826_m527p","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":1,"connectionId":"conn_1750406960826_m527p","context":"unknown","duration":"4ms","event":"connection_released","level":"info","message":"Database connection released","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":2,"connectionId":"conn_1750406960842_dt5vb","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":1,"connectionId":"conn_1750406960842_dt5vb","context":"unknown","duration":"7ms","event":"connection_released","level":"info","message":"Database connection released","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":51,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":0,"connectionId":"conn_1750406960709_mgstk","context":"unknown","duration":"140ms","event":"connection_released","level":"info","message":"Database connection released","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":1,"connectionId":"conn_1750406960864_bmn2o","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":0,"connectionId":"conn_1750406960864_bmn2o","context":"unknown","duration":"9ms","event":"connection_released","level":"info","message":"Database connection released","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":1,"connectionId":"conn_1750406960878_qvd6c","connectionLimit":25,"duration":"1ms","event":"connection_created","level":"info","message":"Database connection created","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"activeConnections":0,"connectionId":"conn_1750406960878_qvd6c","context":"unknown","duration":"7ms","event":"connection_released","level":"info","message":"Database connection released","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":50,"timestamp":"2025-06-20 15:09:20"}
+{"event":"connection_established","level":"info","message":"New MySQL connection established","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"activeConnections":1,"connectionId":"conn_1750383875416_j2b77","connectionLimit":25,"duration":"137ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"activeConnections":0,"connectionId":"conn_1750383875416_j2b77","context":"executeQuery(checkUserSql)","duration":"48ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"activeConnections":1,"connectionId":"conn_1750383875602_xojtn","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"activeConnections":0,"connectionId":"conn_1750383875602_xojtn","context":"executeQuery(checkWardSql)","duration":"6ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"activeConnections":1,"connectionId":"conn_1750383875609_cpp1n","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"activeConnections":0,"connectionId":"conn_1750383875609_cpp1n","context":"executeQuery(permissionsSql)","duration":"7ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"activeConnections":1,"connectionId":"conn_1750383875617_eu781","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"activeConnections":0,"connectionId":"conn_1750383875617_eu781","context":"executeTransaction(mysqlLogin)","duration":"33ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"activeConnections":1,"connectionId":"conn_1750383875653_wvlfv","connectionLimit":25,"duration":"1ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"activeConnections":0,"connectionId":"conn_1750383875653_wvlfv","context":"executeInsert(logActivity)","duration":"5ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:44:35"}
+{"duration":"22818ms","level":"error","message":"Slow request detected - อาจมีปัญหา connection","method":"POST","requestId":"ny9jb8m0qvp","timestamp":"2025-06-20 08:45:43","url":"/auth/oracle-login"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:46:50"}
+{"activeConnections":1,"connectionId":"conn_1750384010235_xxe3w","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:46:50"}
+{"activeConnections":0,"connectionId":"conn_1750384010235_xxe3w","context":"executeQuery(checkTokenSql)","duration":"2ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:46:50"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:46:50"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:46:50"}
+{"activeConnections":1,"connectionId":"conn_1750384010242_7loxb","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:46:50"}
+{"activeConnections":0,"connectionId":"conn_1750384010242_7loxb","context":"executeInsert(saveTokenSql)","duration":"4ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:46:50"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:46:50"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:46:50"}
+{"activeConnections":1,"connectionId":"conn_1750384010247_iqso0","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:46:50"}
+{"activeConnections":0,"connectionId":"conn_1750384010247_iqso0","context":"executeUpdate(revokeTokenSql)","duration":"4ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:46:50"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:46:50"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:46:50"}
+{"activeConnections":1,"connectionId":"conn_1750384010253_f4ihp","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:46:50"}
+{"activeConnections":0,"connectionId":"conn_1750384010253_f4ihp","context":"executeInsert(logActivity)","duration":"2ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:46:50"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:46:50"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:47:05"}
+{"activeConnections":1,"connectionId":"conn_1750384025585_b8k0b","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:47:05"}
+{"activeConnections":0,"connectionId":"conn_1750384025585_b8k0b","context":"executeQuery(checkTokenSql)","duration":"2ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:47:05"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:47:05"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"activeConnections":1,"connectionId":"conn_1750384455445_5csyj","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"activeConnections":0,"connectionId":"conn_1750384455445_5csyj","context":"executeQuery(checkUserSql)","duration":"2ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"activeConnections":1,"connectionId":"conn_1750384455448_16nh1","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"activeConnections":0,"connectionId":"conn_1750384455448_16nh1","context":"executeQuery(checkWardSql)","duration":"1ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"activeConnections":1,"connectionId":"conn_1750384455450_g2a8y","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"activeConnections":0,"connectionId":"conn_1750384455450_g2a8y","context":"executeQuery(permissionsSql)","duration":"1ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"activeConnections":1,"connectionId":"conn_1750384455452_p0xe9","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"activeConnections":0,"connectionId":"conn_1750384455452_p0xe9","context":"executeTransaction(mysqlLogin)","duration":"10ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"activeConnections":1,"connectionId":"conn_1750384455464_020co","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"activeConnections":0,"connectionId":"conn_1750384455464_020co","context":"executeInsert(logActivity)","duration":"3ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:54:15"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:54:31"}
+{"activeConnections":1,"connectionId":"conn_1750384471665_0ho8e","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:54:31"}
+{"activeConnections":0,"connectionId":"conn_1750384471665_0ho8e","context":"executeQuery(checkTokenSql)","duration":"1ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:54:31"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:54:31"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:54:31"}
+{"activeConnections":1,"connectionId":"conn_1750384471670_9cdoy","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:54:31"}
+{"activeConnections":0,"connectionId":"conn_1750384471670_9cdoy","context":"executeInsert(saveTokenSql)","duration":"4ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:54:31"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:54:31"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:54:31"}
+{"activeConnections":1,"connectionId":"conn_1750384471674_vh8lt","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:54:31"}
+{"activeConnections":0,"connectionId":"conn_1750384471674_vh8lt","context":"executeUpdate(revokeTokenSql)","duration":"2ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:54:31"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:54:31"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:54:31"}
+{"activeConnections":1,"connectionId":"conn_1750384471677_2s91n","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:54:31"}
+{"activeConnections":0,"connectionId":"conn_1750384471677_2s91n","context":"executeInsert(logActivity)","duration":"2ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:54:31"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:54:31"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:59:44"}
+{"activeConnections":1,"connectionId":"conn_1750384784423_4dys3","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:59:44"}
+{"activeConnections":0,"connectionId":"conn_1750384784423_4dys3","context":"executeQuery(checkTokenSql)","duration":"2ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:59:44"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:59:44"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:59:44"}
+{"activeConnections":1,"connectionId":"conn_1750384784430_9te3y","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:59:44"}
+{"activeConnections":0,"connectionId":"conn_1750384784430_9te3y","context":"executeInsert(saveTokenSql)","duration":"5ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:59:44"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:59:44"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:59:44"}
+{"activeConnections":1,"connectionId":"conn_1750384784436_zztso","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:59:44"}
+{"activeConnections":0,"connectionId":"conn_1750384784436_zztso","context":"executeUpdate(revokeTokenSql)","duration":"2ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:59:44"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:59:44"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 08:59:44"}
+{"activeConnections":1,"connectionId":"conn_1750384784439_pe6pa","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 08:59:44"}
+{"activeConnections":0,"connectionId":"conn_1750384784439_pe6pa","context":"executeInsert(logActivity)","duration":"2ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 08:59:44"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 08:59:44"}
+{"event":"connection_acquired","level":"debug","message":"Connection acquired from pool","threadId":98,"timestamp":"2025-06-20 09:01:46"}
+{"activeConnections":1,"connectionId":"conn_1750384906280_6vyyy","connectionLimit":25,"duration":"0ms","event":"connection_created","level":"info","message":"Database connection created","threadId":98,"timestamp":"2025-06-20 09:01:46"}
+{"activeConnections":0,"connectionId":"conn_1750384906280_6vyyy","context":"executeQuery(checkTokenSql)","duration":"2ms","event":"connection_released","level":"info","message":"Database connection released","threadId":98,"timestamp":"2025-06-20 09:01:46"}
+{"event":"connection_released","level":"debug","message":"Connection released to pool","threadId":98,"timestamp":"2025-06-20 09:01:46"}

@@ -1,0 +1,199 @@
+2025-06-09 10:31:55 +07:00: กำลังโหลดไฟล์ environment (production) จาก: D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\config\production.env
+2025-06-09 10:31:55 +07:00: การตั้งค่าเซิร์ฟเวอร์: {
+2025-06-09 10:31:55 +07:00:   https_enabled: true,
+2025-06-09 10:31:55 +07:00:   http_port: '5009',
+2025-06-09 10:31:55 +07:00:   https_port: 5443,
+2025-06-09 10:31:55 +07:00:   cert_path: './config/certs/production/cert.pem',
+2025-06-09 10:31:55 +07:00:   key_path: './config/certs/production/key.pem'
+2025-06-09 10:31:55 +07:00: }
+2025-06-09 10:31:55 +07:00: [2025-06-09 10:31:55] ManagementDB: กำลังสร้าง instance ใหม่
+2025-06-09 10:31:55 +07:00: [2025-06-09 10:31:55] เริ่มต้น cleanup scheduler ทุก 5 นาที
+2025-06-09 10:31:55 +07:00: [2025-06-09 10:31:55] เริ่มต้น status monitoring ทุก 2 นาที
+2025-06-09 10:31:55 +07:00: [2025-06-09 10:31:55] ManagementDB: พร้อมใช้งาน (Connection Limit: 20)
+2025-06-09 10:31:55 +07:00: [2025-06-09 10:31:55] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+2025-06-09 10:31:55 +07:00: [2025-06-09 10:31:55] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+2025-06-09 10:31:55 +07:00: ประเภทข้อมูล HTTPS_ENABLED: string
+2025-06-09 10:31:55 +07:00: ค่า HTTPS_PORT: 5443
+2025-06-09 10:31:55 +07:00: ค่า HTTPS_ENABLED: true
+2025-06-09 10:31:55 +07:00: ค่า CERT_PATH: ./config/certs/production/cert.pem
+2025-06-09 10:31:55 +07:00: ค่า KEY_PATH: ./config/certs/production/key.pem
+2025-06-09 10:31:55 +07:00: [กำหนดค่า] NODE_ENV: production, isDevelopment: false
+2025-06-09 10:31:55 +07:00: [กำหนดค่า] Morgan Format: [:datetime-th] :method :url :status - :response-time ms
+2025-06-09 10:31:55 +07:00: [2025-06-09 10:31:55] เริ่มต้นระบบ Cron Jobs
+2025-06-09 10:31:55 +07:00: [2025-06-09 10:31:55] Cron Jobs ถูกตั้งค่าแล้ว:
+2025-06-09 10:31:55 +07:00: [2025-06-09 10:31:55] Generate Plan: 1 0 * * * (ทำงานทุกวันเวลา 00:01 น.)
+2025-06-09 10:31:55 +07:00: กำลังอ่านไฟล์ใบรับรองจาก: {
+2025-06-09 10:31:55 +07:00:   cert: 'D:\\project\\sgh-project\\vs-project\\dev\\nursing-system\\nursing-server\\production-build\\config\\certs\\production\\cert.pem',
+2025-06-09 10:31:55 +07:00:   key: 'D:\\project\\sgh-project\\vs-project\\dev\\nursing-system\\nursing-server\\production-build\\config\\certs\\production\\key.pem'
+2025-06-09 10:31:55 +07:00: }
+2025-06-09 10:31:55 +07:00: [2025-06-09 10:31:55] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+2025-06-09 10:31:55 +07:00: [2025-06-09 10:31:55] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+2025-06-09 10:31:55 +07:00: [2025-06-09 10:31:55] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+2025-06-09 10:31:55 +07:00: [2025-06-09 10:31:55] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+2025-06-09 10:31:55 +07:00: [Server Start] เคลียร์ connection ที่ค้างอยู่เรียบร้อย
+2025-06-09 10:32:00 +07:00: กำลังโหลดไฟล์ environment (production) จาก: D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\config\production.env
+2025-06-09 10:32:00 +07:00: การตั้งค่าเซิร์ฟเวอร์: {
+2025-06-09 10:32:00 +07:00:   https_enabled: true,
+2025-06-09 10:32:00 +07:00:   http_port: '5009',
+2025-06-09 10:32:00 +07:00:   https_port: 5443,
+2025-06-09 10:32:00 +07:00:   cert_path: './config/certs/production/cert.pem',
+2025-06-09 10:32:00 +07:00:   key_path: './config/certs/production/key.pem'
+2025-06-09 10:32:00 +07:00: }
+2025-06-09 10:32:00 +07:00: [2025-06-09 10:32:00] ManagementDB: กำลังสร้าง instance ใหม่
+2025-06-09 10:32:00 +07:00: [2025-06-09 10:32:00] เริ่มต้น cleanup scheduler ทุก 5 นาที
+2025-06-09 10:32:00 +07:00: [2025-06-09 10:32:00] เริ่มต้น status monitoring ทุก 2 นาที
+2025-06-09 10:32:00 +07:00: [2025-06-09 10:32:00] ManagementDB: พร้อมใช้งาน (Connection Limit: 20)
+2025-06-09 10:32:00 +07:00: [2025-06-09 10:32:00] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:00 +07:00: [2025-06-09 10:32:00] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:00 +07:00: ประเภทข้อมูล HTTPS_ENABLED: string
+2025-06-09 10:32:00 +07:00: ค่า HTTPS_PORT: 5443
+2025-06-09 10:32:00 +07:00: ค่า HTTPS_ENABLED: true
+2025-06-09 10:32:00 +07:00: ค่า CERT_PATH: ./config/certs/production/cert.pem
+2025-06-09 10:32:00 +07:00: ค่า KEY_PATH: ./config/certs/production/key.pem
+2025-06-09 10:32:00 +07:00: [กำหนดค่า] NODE_ENV: production, isDevelopment: false
+2025-06-09 10:32:00 +07:00: [กำหนดค่า] Morgan Format: [:datetime-th] :method :url :status - :response-time ms
+2025-06-09 10:32:00 +07:00: [2025-06-09 10:32:00] เริ่มต้นระบบ Cron Jobs
+2025-06-09 10:32:01 +07:00: [2025-06-09 10:32:00] Cron Jobs ถูกตั้งค่าแล้ว:
+2025-06-09 10:32:01 +07:00: [2025-06-09 10:32:00] Generate Plan: 1 0 * * * (ทำงานทุกวันเวลา 00:01 น.)
+2025-06-09 10:32:01 +07:00: กำลังอ่านไฟล์ใบรับรองจาก: {
+2025-06-09 10:32:01 +07:00:   cert: 'D:\\project\\sgh-project\\vs-project\\dev\\nursing-system\\nursing-server\\production-build\\config\\certs\\production\\cert.pem',
+2025-06-09 10:32:01 +07:00:   key: 'D:\\project\\sgh-project\\vs-project\\dev\\nursing-system\\nursing-server\\production-build\\config\\certs\\production\\key.pem'
+2025-06-09 10:32:01 +07:00: }
+2025-06-09 10:32:01 +07:00: [2025-06-09 10:32:01] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:01 +07:00: [2025-06-09 10:32:01] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:01 +07:00: [2025-06-09 10:32:01] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:01 +07:00: [2025-06-09 10:32:01] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:01 +07:00: [Server Start] เคลียร์ connection ที่ค้างอยู่เรียบร้อย
+2025-06-09 10:32:05 +07:00: กำลังโหลดไฟล์ environment (production) จาก: D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\config\production.env
+2025-06-09 10:32:05 +07:00: การตั้งค่าเซิร์ฟเวอร์: {
+2025-06-09 10:32:05 +07:00:   https_enabled: true,
+2025-06-09 10:32:05 +07:00:   http_port: '5009',
+2025-06-09 10:32:05 +07:00:   https_port: 5443,
+2025-06-09 10:32:05 +07:00:   cert_path: './config/certs/production/cert.pem',
+2025-06-09 10:32:05 +07:00:   key_path: './config/certs/production/key.pem'
+2025-06-09 10:32:05 +07:00: }
+2025-06-09 10:32:05 +07:00: [2025-06-09 10:32:05] ManagementDB: กำลังสร้าง instance ใหม่
+2025-06-09 10:32:05 +07:00: [2025-06-09 10:32:05] เริ่มต้น cleanup scheduler ทุก 5 นาที
+2025-06-09 10:32:05 +07:00: [2025-06-09 10:32:05] เริ่มต้น status monitoring ทุก 2 นาที
+2025-06-09 10:32:05 +07:00: [2025-06-09 10:32:05] ManagementDB: พร้อมใช้งาน (Connection Limit: 20)
+2025-06-09 10:32:05 +07:00: [2025-06-09 10:32:05] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:05 +07:00: [2025-06-09 10:32:05] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:05 +07:00: ประเภทข้อมูล HTTPS_ENABLED: string
+2025-06-09 10:32:05 +07:00: ค่า HTTPS_PORT: 5443
+2025-06-09 10:32:05 +07:00: ค่า HTTPS_ENABLED: true
+2025-06-09 10:32:05 +07:00: ค่า CERT_PATH: ./config/certs/production/cert.pem
+2025-06-09 10:32:05 +07:00: ค่า KEY_PATH: ./config/certs/production/key.pem
+2025-06-09 10:32:05 +07:00: [กำหนดค่า] NODE_ENV: production, isDevelopment: false
+2025-06-09 10:32:05 +07:00: [กำหนดค่า] Morgan Format: [:datetime-th] :method :url :status - :response-time ms
+2025-06-09 10:32:06 +07:00: [2025-06-09 10:32:06] เริ่มต้นระบบ Cron Jobs
+2025-06-09 10:32:06 +07:00: [2025-06-09 10:32:06] Cron Jobs ถูกตั้งค่าแล้ว:
+2025-06-09 10:32:06 +07:00: [2025-06-09 10:32:06] Generate Plan: 1 0 * * * (ทำงานทุกวันเวลา 00:01 น.)
+2025-06-09 10:32:06 +07:00: กำลังอ่านไฟล์ใบรับรองจาก: {
+2025-06-09 10:32:06 +07:00:   cert: 'D:\\project\\sgh-project\\vs-project\\dev\\nursing-system\\nursing-server\\production-build\\config\\certs\\production\\cert.pem',
+2025-06-09 10:32:06 +07:00:   key: 'D:\\project\\sgh-project\\vs-project\\dev\\nursing-system\\nursing-server\\production-build\\config\\certs\\production\\key.pem'
+2025-06-09 10:32:06 +07:00: }
+2025-06-09 10:32:06 +07:00: [2025-06-09 10:32:06] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:06 +07:00: [2025-06-09 10:32:06] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:06 +07:00: [2025-06-09 10:32:06] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:06 +07:00: [2025-06-09 10:32:06] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:06 +07:00: [Server Start] เคลียร์ connection ที่ค้างอยู่เรียบร้อย
+2025-06-09 10:32:10 +07:00: กำลังโหลดไฟล์ environment (production) จาก: D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\config\production.env
+2025-06-09 10:32:10 +07:00: การตั้งค่าเซิร์ฟเวอร์: {
+2025-06-09 10:32:10 +07:00:   https_enabled: true,
+2025-06-09 10:32:10 +07:00:   http_port: '5009',
+2025-06-09 10:32:10 +07:00:   https_port: 5443,
+2025-06-09 10:32:10 +07:00:   cert_path: './config/certs/production/cert.pem',
+2025-06-09 10:32:10 +07:00:   key_path: './config/certs/production/key.pem'
+2025-06-09 10:32:10 +07:00: }
+2025-06-09 10:32:10 +07:00: [2025-06-09 10:32:10] ManagementDB: กำลังสร้าง instance ใหม่
+2025-06-09 10:32:10 +07:00: [2025-06-09 10:32:10] เริ่มต้น cleanup scheduler ทุก 5 นาที
+2025-06-09 10:32:10 +07:00: [2025-06-09 10:32:10] เริ่มต้น status monitoring ทุก 2 นาที
+2025-06-09 10:32:10 +07:00: [2025-06-09 10:32:10] ManagementDB: พร้อมใช้งาน (Connection Limit: 20)
+2025-06-09 10:32:10 +07:00: [2025-06-09 10:32:10] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:10 +07:00: [2025-06-09 10:32:10] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:10 +07:00: ประเภทข้อมูล HTTPS_ENABLED: string
+2025-06-09 10:32:10 +07:00: ค่า HTTPS_PORT: 5443
+2025-06-09 10:32:10 +07:00: ค่า HTTPS_ENABLED: true
+2025-06-09 10:32:10 +07:00: ค่า CERT_PATH: ./config/certs/production/cert.pem
+2025-06-09 10:32:10 +07:00: ค่า KEY_PATH: ./config/certs/production/key.pem
+2025-06-09 10:32:10 +07:00: [กำหนดค่า] NODE_ENV: production, isDevelopment: false
+2025-06-09 10:32:10 +07:00: [กำหนดค่า] Morgan Format: [:datetime-th] :method :url :status - :response-time ms
+2025-06-09 10:32:10 +07:00: [2025-06-09 10:32:10] เริ่มต้นระบบ Cron Jobs
+2025-06-09 10:32:11 +07:00: [2025-06-09 10:32:10] Cron Jobs ถูกตั้งค่าแล้ว:
+2025-06-09 10:32:11 +07:00: [2025-06-09 10:32:10] Generate Plan: 1 0 * * * (ทำงานทุกวันเวลา 00:01 น.)
+2025-06-09 10:32:11 +07:00: กำลังอ่านไฟล์ใบรับรองจาก: {
+2025-06-09 10:32:11 +07:00:   cert: 'D:\\project\\sgh-project\\vs-project\\dev\\nursing-system\\nursing-server\\production-build\\config\\certs\\production\\cert.pem',
+2025-06-09 10:32:11 +07:00:   key: 'D:\\project\\sgh-project\\vs-project\\dev\\nursing-system\\nursing-server\\production-build\\config\\certs\\production\\key.pem'
+2025-06-09 10:32:11 +07:00: }
+2025-06-09 10:32:11 +07:00: [2025-06-09 10:32:11] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:11 +07:00: [2025-06-09 10:32:11] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:11 +07:00: [2025-06-09 10:32:11] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:11 +07:00: [2025-06-09 10:32:11] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:11 +07:00: [Server Start] เคลียร์ connection ที่ค้างอยู่เรียบร้อย
+2025-06-09 10:32:15 +07:00: กำลังโหลดไฟล์ environment (production) จาก: D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\config\production.env
+2025-06-09 10:32:15 +07:00: การตั้งค่าเซิร์ฟเวอร์: {
+2025-06-09 10:32:15 +07:00:   https_enabled: true,
+2025-06-09 10:32:15 +07:00:   http_port: '5009',
+2025-06-09 10:32:15 +07:00:   https_port: 5443,
+2025-06-09 10:32:15 +07:00:   cert_path: './config/certs/production/cert.pem',
+2025-06-09 10:32:15 +07:00:   key_path: './config/certs/production/key.pem'
+2025-06-09 10:32:15 +07:00: }
+2025-06-09 10:32:15 +07:00: [2025-06-09 10:32:15] ManagementDB: กำลังสร้าง instance ใหม่
+2025-06-09 10:32:15 +07:00: [2025-06-09 10:32:15] เริ่มต้น cleanup scheduler ทุก 5 นาที
+2025-06-09 10:32:15 +07:00: [2025-06-09 10:32:15] เริ่มต้น status monitoring ทุก 2 นาที
+2025-06-09 10:32:15 +07:00: [2025-06-09 10:32:15] ManagementDB: พร้อมใช้งาน (Connection Limit: 20)
+2025-06-09 10:32:15 +07:00: [2025-06-09 10:32:15] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:15 +07:00: [2025-06-09 10:32:15] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:15 +07:00: ประเภทข้อมูล HTTPS_ENABLED: string
+2025-06-09 10:32:15 +07:00: ค่า HTTPS_PORT: 5443
+2025-06-09 10:32:15 +07:00: ค่า HTTPS_ENABLED: true
+2025-06-09 10:32:15 +07:00: ค่า CERT_PATH: ./config/certs/production/cert.pem
+2025-06-09 10:32:15 +07:00: ค่า KEY_PATH: ./config/certs/production/key.pem
+2025-06-09 10:32:15 +07:00: [กำหนดค่า] NODE_ENV: production, isDevelopment: false
+2025-06-09 10:32:15 +07:00: [กำหนดค่า] Morgan Format: [:datetime-th] :method :url :status - :response-time ms
+2025-06-09 10:32:15 +07:00: [2025-06-09 10:32:15] เริ่มต้นระบบ Cron Jobs
+2025-06-09 10:32:15 +07:00: [2025-06-09 10:32:15] Cron Jobs ถูกตั้งค่าแล้ว:
+2025-06-09 10:32:15 +07:00: [2025-06-09 10:32:15] Generate Plan: 1 0 * * * (ทำงานทุกวันเวลา 00:01 น.)
+2025-06-09 10:32:15 +07:00: กำลังอ่านไฟล์ใบรับรองจาก: {
+2025-06-09 10:32:15 +07:00:   cert: 'D:\\project\\sgh-project\\vs-project\\dev\\nursing-system\\nursing-server\\production-build\\config\\certs\\production\\cert.pem',
+2025-06-09 10:32:15 +07:00:   key: 'D:\\project\\sgh-project\\vs-project\\dev\\nursing-system\\nursing-server\\production-build\\config\\certs\\production\\key.pem'
+2025-06-09 10:32:15 +07:00: }
+2025-06-09 10:32:15 +07:00: [2025-06-09 10:32:15] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:15 +07:00: [2025-06-09 10:32:15] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:15 +07:00: [2025-06-09 10:32:15] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:15 +07:00: [2025-06-09 10:32:15] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+2025-06-09 10:32:15 +07:00: [Server Start] เคลียร์ connection ที่ค้างอยู่เรียบร้อย
+2025-06-19 18:00:26 +07:00: กำลังโหลดไฟล์ environment (production) จาก: D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\config\production.env
+2025-06-19 18:00:26 +07:00: การตั้งค่าเซิร์ฟเวอร์: {
+2025-06-19 18:00:26 +07:00:   https_enabled: true,
+2025-06-19 18:00:26 +07:00:   http_port: '5009',
+2025-06-19 18:00:26 +07:00:   https_port: 5443,
+2025-06-19 18:00:26 +07:00:   cert_path: './config/certs/production/cert.pem',
+2025-06-19 18:00:26 +07:00:   key_path: './config/certs/production/key.pem'
+2025-06-19 18:00:26 +07:00: }
+2025-06-19 18:00:26 +07:00: [2025-06-19 18:00:26] ManagementDB: กำลังสร้าง instance ใหม่
+2025-06-19 18:00:26 +07:00: [2025-06-19 18:00:26] เริ่มต้น cleanup scheduler ทุก 5 นาที
+2025-06-19 18:00:26 +07:00: [2025-06-19 18:00:26] เริ่มต้น status monitoring ทุก 2 นาที
+2025-06-19 18:00:26 +07:00: [2025-06-19 18:00:26] ManagementDB: พร้อมใช้งาน (Connection Limit: 25)
+2025-06-19 18:00:26 +07:00: [2025-06-19 18:00:26] เริ่มต้น cleanup connections (ตรวจสอบ 0 รายการ)
+2025-06-19 18:00:26 +07:00: [2025-06-19 18:00:26] Cleanup เสร็จสิ้น: ไม่มี connection ที่ต้องทำความสะอาด (ตรวจสอบ 0 รายการ)
+2025-06-19 18:00:26 +07:00: ประเภทข้อมูล HTTPS_ENABLED: string
+2025-06-19 18:00:26 +07:00: ค่า HTTPS_PORT: 5443
+2025-06-19 18:00:26 +07:00: ค่า HTTPS_ENABLED: true
+2025-06-19 18:00:26 +07:00: ค่า CERT_PATH: ./config/certs/production/cert.pem
+2025-06-19 18:00:26 +07:00: ค่า KEY_PATH: ./config/certs/production/key.pem
+2025-06-19 18:00:26 +07:00: [กำหนดค่า] NODE_ENV: production, isDevelopment: false
+2025-06-19 18:00:26 +07:00: [กำหนดค่า] Morgan Format: [:datetime-th] :method :url :status - :response-time ms
+2025-06-19 18:00:26 +07:00: [2025-06-19 18:00:26] เริ่มต้นระบบ Cron Jobs
+2025-06-19 18:00:26 +07:00: [2025-06-19 18:00:26] Cron Jobs ถูกตั้งค่าแล้ว:
+2025-06-19 18:00:26 +07:00: [2025-06-19 18:00:26] Generate Plan: 1 0 * * * (ทำงานทุกวันเวลา 00:01 น.)
+2025-06-19 18:00:26 +07:00: กำลังอ่านไฟล์ใบรับรองจาก: {
+2025-06-19 18:00:26 +07:00:   cert: 'D:\\project\\sgh-project\\vs-project\\dev\\nursing-system\\nursing-server\\production-build\\config\\certs\\production\\cert.pem',
+2025-06-19 18:00:26 +07:00:   key: 'D:\\project\\sgh-project\\vs-project\\dev\\nursing-system\\nursing-server\\production-build\\config\\certs\\production\\key.pem'
+2025-06-19 18:00:26 +07:00: }
+2025-06-19 18:00:26 +07:00: [2025-06-19 18:00:26] เซิร์ฟเวอร์ HTTP เริ่มต้นที่พอร์ต 5009
+2025-06-19 18:00:26 +07:00: [2025-06-19 18:00:26] เซิร์ฟเวอร์ HTTPS เริ่มต้นที่พอร์ต 5443
+2025-06-19 18:00:26 +07:00: [Server Start] เคลียร์ connection ที่ค้างอยู่เรียบร้อย
+2025-06-19 18:00:35 +07:00: [AUTH_CHECK] เริ่มต้นการตรวจสอบ authentication
+2025-06-19 18:00:35 +07:00: [AUTH_CHECK] ตรวจสอบ JWT signature
+2025-06-19 18:00:35 +07:00: [2025-06-19 18:00:35] POST /api/vs/record 401 - 23.237 ms

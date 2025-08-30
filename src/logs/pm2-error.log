@@ -1,0 +1,341 @@
+2025-06-09 10:31:55 +07:00: Error: listen EADDRINUSE: address already in use :::5009
+2025-06-09 10:31:55 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:31:55 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:31:55 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:31:55 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:250:20)
+2025-06-09 10:31:55 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:31:55 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:31:55 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:31:55 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:31:55 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:31:55 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:31:55 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:31:55 +07:00:   errno: -4091,
+2025-06-09 10:31:55 +07:00:   syscall: 'listen',
+2025-06-09 10:31:55 +07:00:   address: '::',
+2025-06-09 10:31:55 +07:00:   port: 5009
+2025-06-09 10:31:55 +07:00: }
+2025-06-09 10:31:55 +07:00: ข้อผิดพลาดที่ไม่ได้จัดการ: Error: listen EADDRINUSE: address already in use :::5009
+2025-06-09 10:31:55 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:31:55 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:31:55 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:31:55 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:250:20)
+2025-06-09 10:31:55 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:31:55 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:31:55 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:31:55 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:31:55 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:31:55 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:31:55 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:31:55 +07:00:   errno: -4091,
+2025-06-09 10:31:55 +07:00:   syscall: 'listen',
+2025-06-09 10:31:55 +07:00:   address: '::',
+2025-06-09 10:31:55 +07:00:   port: 5009
+2025-06-09 10:31:55 +07:00: }
+2025-06-09 10:31:55 +07:00: Error: listen EADDRINUSE: address already in use :::5443
+2025-06-09 10:31:55 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:31:55 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:31:55 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:31:55 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:290:33)
+2025-06-09 10:31:55 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:31:55 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:31:55 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:31:55 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:31:55 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:31:55 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:31:55 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:31:55 +07:00:   errno: -4091,
+2025-06-09 10:31:55 +07:00:   syscall: 'listen',
+2025-06-09 10:31:55 +07:00:   address: '::',
+2025-06-09 10:31:55 +07:00:   port: 5443
+2025-06-09 10:31:55 +07:00: }
+2025-06-09 10:31:55 +07:00: ข้อผิดพลาดที่ไม่ได้จัดการ: Error: listen EADDRINUSE: address already in use :::5443
+2025-06-09 10:31:55 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:31:55 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:31:55 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:31:55 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:290:33)
+2025-06-09 10:31:55 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:31:55 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:31:55 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:31:55 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:31:55 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:31:55 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:31:55 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:31:55 +07:00:   errno: -4091,
+2025-06-09 10:31:55 +07:00:   syscall: 'listen',
+2025-06-09 10:31:55 +07:00:   address: '::',
+2025-06-09 10:31:55 +07:00:   port: 5443
+2025-06-09 10:31:55 +07:00: }
+2025-06-09 10:32:01 +07:00: Error: listen EADDRINUSE: address already in use :::5009
+2025-06-09 10:32:01 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:32:01 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:32:01 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:32:01 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:250:20)
+2025-06-09 10:32:01 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:32:01 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:32:01 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:32:01 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:32:01 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:32:01 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:32:01 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:32:01 +07:00:   errno: -4091,
+2025-06-09 10:32:01 +07:00:   syscall: 'listen',
+2025-06-09 10:32:01 +07:00:   address: '::',
+2025-06-09 10:32:01 +07:00:   port: 5009
+2025-06-09 10:32:01 +07:00: }
+2025-06-09 10:32:01 +07:00: ข้อผิดพลาดที่ไม่ได้จัดการ: Error: listen EADDRINUSE: address already in use :::5009
+2025-06-09 10:32:01 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:32:01 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:32:01 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:32:01 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:250:20)
+2025-06-09 10:32:01 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:32:01 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:32:01 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:32:01 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:32:01 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:32:01 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:32:01 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:32:01 +07:00:   errno: -4091,
+2025-06-09 10:32:01 +07:00:   syscall: 'listen',
+2025-06-09 10:32:01 +07:00:   address: '::',
+2025-06-09 10:32:01 +07:00:   port: 5009
+2025-06-09 10:32:01 +07:00: }
+2025-06-09 10:32:01 +07:00: Error: listen EADDRINUSE: address already in use :::5443
+2025-06-09 10:32:01 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:32:01 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:32:01 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:32:01 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:290:33)
+2025-06-09 10:32:01 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:32:01 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:32:01 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:32:01 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:32:01 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:32:01 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:32:01 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:32:01 +07:00:   errno: -4091,
+2025-06-09 10:32:01 +07:00:   syscall: 'listen',
+2025-06-09 10:32:01 +07:00:   address: '::',
+2025-06-09 10:32:01 +07:00:   port: 5443
+2025-06-09 10:32:01 +07:00: }
+2025-06-09 10:32:01 +07:00: ข้อผิดพลาดที่ไม่ได้จัดการ: Error: listen EADDRINUSE: address already in use :::5443
+2025-06-09 10:32:01 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:32:01 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:32:01 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:32:01 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:290:33)
+2025-06-09 10:32:01 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:32:01 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:32:01 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:32:01 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:32:01 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:32:01 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:32:01 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:32:01 +07:00:   errno: -4091,
+2025-06-09 10:32:01 +07:00:   syscall: 'listen',
+2025-06-09 10:32:01 +07:00:   address: '::',
+2025-06-09 10:32:01 +07:00:   port: 5443
+2025-06-09 10:32:01 +07:00: }
+2025-06-09 10:32:06 +07:00: Error: listen EADDRINUSE: address already in use :::5009
+2025-06-09 10:32:06 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:32:06 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:32:06 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:32:06 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:250:20)
+2025-06-09 10:32:06 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:32:06 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:32:06 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:32:06 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:32:06 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:32:06 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:32:06 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:32:06 +07:00:   errno: -4091,
+2025-06-09 10:32:06 +07:00:   syscall: 'listen',
+2025-06-09 10:32:06 +07:00:   address: '::',
+2025-06-09 10:32:06 +07:00:   port: 5009
+2025-06-09 10:32:06 +07:00: }
+2025-06-09 10:32:06 +07:00: ข้อผิดพลาดที่ไม่ได้จัดการ: Error: listen EADDRINUSE: address already in use :::5009
+2025-06-09 10:32:06 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:32:06 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:32:06 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:32:06 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:250:20)
+2025-06-09 10:32:06 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:32:06 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:32:06 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:32:06 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:32:06 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:32:06 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:32:06 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:32:06 +07:00:   errno: -4091,
+2025-06-09 10:32:06 +07:00:   syscall: 'listen',
+2025-06-09 10:32:06 +07:00:   address: '::',
+2025-06-09 10:32:06 +07:00:   port: 5009
+2025-06-09 10:32:06 +07:00: }
+2025-06-09 10:32:06 +07:00: Error: listen EADDRINUSE: address already in use :::5443
+2025-06-09 10:32:06 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:32:06 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:32:06 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:32:06 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:290:33)
+2025-06-09 10:32:06 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:32:06 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:32:06 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:32:06 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:32:06 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:32:06 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:32:06 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:32:06 +07:00:   errno: -4091,
+2025-06-09 10:32:06 +07:00:   syscall: 'listen',
+2025-06-09 10:32:06 +07:00:   address: '::',
+2025-06-09 10:32:06 +07:00:   port: 5443
+2025-06-09 10:32:06 +07:00: }
+2025-06-09 10:32:06 +07:00: ข้อผิดพลาดที่ไม่ได้จัดการ: Error: listen EADDRINUSE: address already in use :::5443
+2025-06-09 10:32:06 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:32:06 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:32:06 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:32:06 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:290:33)
+2025-06-09 10:32:06 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:32:06 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:32:06 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:32:06 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:32:06 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:32:06 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:32:06 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:32:06 +07:00:   errno: -4091,
+2025-06-09 10:32:06 +07:00:   syscall: 'listen',
+2025-06-09 10:32:06 +07:00:   address: '::',
+2025-06-09 10:32:06 +07:00:   port: 5443
+2025-06-09 10:32:06 +07:00: }
+2025-06-09 10:32:11 +07:00: Error: listen EADDRINUSE: address already in use :::5009
+2025-06-09 10:32:11 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:32:11 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:32:11 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:32:11 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:250:20)
+2025-06-09 10:32:11 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:32:11 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:32:11 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:32:11 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:32:11 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:32:11 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:32:11 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:32:11 +07:00:   errno: -4091,
+2025-06-09 10:32:11 +07:00:   syscall: 'listen',
+2025-06-09 10:32:11 +07:00:   address: '::',
+2025-06-09 10:32:11 +07:00:   port: 5009
+2025-06-09 10:32:11 +07:00: }
+2025-06-09 10:32:11 +07:00: ข้อผิดพลาดที่ไม่ได้จัดการ: Error: listen EADDRINUSE: address already in use :::5009
+2025-06-09 10:32:11 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:32:11 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:32:11 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:32:11 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:250:20)
+2025-06-09 10:32:11 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:32:11 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:32:11 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:32:11 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:32:11 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:32:11 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:32:11 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:32:11 +07:00:   errno: -4091,
+2025-06-09 10:32:11 +07:00:   syscall: 'listen',
+2025-06-09 10:32:11 +07:00:   address: '::',
+2025-06-09 10:32:11 +07:00:   port: 5009
+2025-06-09 10:32:11 +07:00: }
+2025-06-09 10:32:11 +07:00: Error: listen EADDRINUSE: address already in use :::5443
+2025-06-09 10:32:11 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:32:11 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:32:11 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:32:11 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:290:33)
+2025-06-09 10:32:11 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:32:11 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:32:11 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:32:11 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:32:11 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:32:11 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:32:11 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:32:11 +07:00:   errno: -4091,
+2025-06-09 10:32:11 +07:00:   syscall: 'listen',
+2025-06-09 10:32:11 +07:00:   address: '::',
+2025-06-09 10:32:11 +07:00:   port: 5443
+2025-06-09 10:32:11 +07:00: }
+2025-06-09 10:32:11 +07:00: ข้อผิดพลาดที่ไม่ได้จัดการ: Error: listen EADDRINUSE: address already in use :::5443
+2025-06-09 10:32:11 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:32:11 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:32:11 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:32:11 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:290:33)
+2025-06-09 10:32:11 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:32:11 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:32:11 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:32:11 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:32:11 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:32:11 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:32:11 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:32:11 +07:00:   errno: -4091,
+2025-06-09 10:32:11 +07:00:   syscall: 'listen',
+2025-06-09 10:32:11 +07:00:   address: '::',
+2025-06-09 10:32:11 +07:00:   port: 5443
+2025-06-09 10:32:11 +07:00: }
+2025-06-09 10:32:15 +07:00: Error: listen EADDRINUSE: address already in use :::5009
+2025-06-09 10:32:15 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:32:15 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:32:15 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:32:15 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:250:20)
+2025-06-09 10:32:15 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:32:15 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:32:15 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:32:15 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:32:15 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:32:15 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:32:15 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:32:15 +07:00:   errno: -4091,
+2025-06-09 10:32:15 +07:00:   syscall: 'listen',
+2025-06-09 10:32:15 +07:00:   address: '::',
+2025-06-09 10:32:15 +07:00:   port: 5009
+2025-06-09 10:32:15 +07:00: }
+2025-06-09 10:32:15 +07:00: ข้อผิดพลาดที่ไม่ได้จัดการ: Error: listen EADDRINUSE: address already in use :::5009
+2025-06-09 10:32:15 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:32:15 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:32:15 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:32:15 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:250:20)
+2025-06-09 10:32:15 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:32:15 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:32:15 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:32:15 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:32:15 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:32:15 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:32:15 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:32:15 +07:00:   errno: -4091,
+2025-06-09 10:32:15 +07:00:   syscall: 'listen',
+2025-06-09 10:32:15 +07:00:   address: '::',
+2025-06-09 10:32:15 +07:00:   port: 5009
+2025-06-09 10:32:15 +07:00: }
+2025-06-09 10:32:15 +07:00: Error: listen EADDRINUSE: address already in use :::5443
+2025-06-09 10:32:15 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:32:15 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:32:15 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:32:15 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:290:33)
+2025-06-09 10:32:15 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:32:15 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:32:15 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:32:15 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:32:15 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:32:15 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:32:15 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:32:15 +07:00:   errno: -4091,
+2025-06-09 10:32:15 +07:00:   syscall: 'listen',
+2025-06-09 10:32:15 +07:00:   address: '::',
+2025-06-09 10:32:15 +07:00:   port: 5443
+2025-06-09 10:32:15 +07:00: }
+2025-06-09 10:32:15 +07:00: ข้อผิดพลาดที่ไม่ได้จัดการ: Error: listen EADDRINUSE: address already in use :::5443
+2025-06-09 10:32:15 +07:00:     at Server.setupListenHandle [as _listen2] (node:net:1912:16)
+2025-06-09 10:32:15 +07:00:     at listenInCluster (node:net:1969:12)
+2025-06-09 10:32:15 +07:00:     at Server.listen (node:net:2074:7)
+2025-06-09 10:32:15 +07:00:     at Object.<anonymous> (D:\project\sgh-project\vs-project\dev\nursing-system\nursing-server\production-build\server.js:290:33)
+2025-06-09 10:32:15 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14)
+2025-06-09 10:32:15 +07:00:     at Object..js (node:internal/modules/cjs/loader:1708:10)
+2025-06-09 10:32:15 +07:00:     at Module.load (node:internal/modules/cjs/loader:1318:32)
+2025-06-09 10:32:15 +07:00:     at Function._load (node:internal/modules/cjs/loader:1128:12)
+2025-06-09 10:32:15 +07:00:     at Object.<anonymous> (C:\Users\NB-COM5\AppData\Roaming\npm\node_modules\pm2\lib\ProcessContainerFork.js:33:23)
+2025-06-09 10:32:15 +07:00:     at Module._compile (node:internal/modules/cjs/loader:1565:14) {
+2025-06-09 10:32:15 +07:00:   code: 'EADDRINUSE',
+2025-06-09 10:32:15 +07:00:   errno: -4091,
+2025-06-09 10:32:15 +07:00:   syscall: 'listen',
+2025-06-09 10:32:15 +07:00:   address: '::',
+2025-06-09 10:32:15 +07:00:   port: 5443
+2025-06-09 10:32:15 +07:00: }
+2025-06-19 18:00:35 +07:00: [AUTH_CHECK] JWT error ใช้เวลา: 3ms - invalid signature

@@ -1,0 +1,23 @@
+[2025-04-07 18:47:39] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - Unknown column 'id' in 'field list'
+[2025-04-07 18:47:39] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - Unknown column 'id' in 'field list'
+[2025-04-08 00:00:25] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - Unknown column 'id' in 'field list'
+[2025-04-08 00:00:25] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - Unknown column 'id' in 'field list'
+[2025-04-08 00:01:34] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - Unknown column 'id' in 'field list'
+[2025-04-08 00:01:34] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - Unknown column 'id' in 'field list'
+[2025-04-08 00:10:45] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - Unknown column 'id' in 'field list'
+[2025-04-08 00:11:57] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - ncAssignsService.generateNCPlanId is not a function
+[2025-04-08 00:14:16] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - ncAssignsService.generateId is not a function
+[2025-04-08 00:15:26] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - ncAssignsService.buildNCPlanDetail is not a function
+[2025-04-08 00:16:41] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - ncAssignsService.buildPlanDetail is not a function
+[2025-04-08 00:20:57] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - Unknown column 'executed_status' in 'field list'
+[2025-04-08 00:50:31] เกิดข้อผิดพลาดในการ Auto Generate NC Plan: Table 'sgh2.tbl_patient_info' doesn't exist
+[2025-04-08 01:26:34] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - Unknown column 'status' in 'field list'
+[2025-04-08 01:27:34] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - Unknown column 'status' in 'field list'
+[2025-05-24 17:59:11] เกิดข้อผิดพลาดในการประมวลผล AN: 1/68 - Unknown column 'status' in 'field list'
+[2025-05-24 18:32:40]   เกิดข้อผิดพลาดในการประมวลผลแผน NC0103: Cannot add or update a child row: a foreign key constraint fails (`sgh2`.`tbl_ur_ncplandetail`, CONSTRAINT `fk_ncpdetail_plan` FOREIGN KEY (`planId`) REFERENCES `tbl_ur_ncplan` (`planId`) ON DELETE CASCADE ON UPDATE CASCADE)
+[2025-05-24 18:32:40]   เกิดข้อผิดพลาดในการประมวลผลแผน NC0301: Cannot add or update a child row: a foreign key constraint fails (`sgh2`.`tbl_ur_ncplandetail`, CONSTRAINT `fk_ncpdetail_plan` FOREIGN KEY (`planId`) REFERENCES `tbl_ur_ncplan` (`planId`) ON DELETE CASCADE ON UPDATE CASCADE)
+[2025-05-24 18:33:07]   เกิดข้อผิดพลาดในการประมวลผลแผน NC0103: Cannot add or update a child row: a foreign key constraint fails (`sgh2`.`tbl_ur_ncplandetail`, CONSTRAINT `fk_ncpdetail_plan` FOREIGN KEY (`planId`) REFERENCES `tbl_ur_ncplan` (`planId`) ON DELETE CASCADE ON UPDATE CASCADE)
+[2025-05-24 18:33:07]   เกิดข้อผิดพลาดในการประมวลผลแผน NC0301: Cannot add or update a child row: a foreign key constraint fails (`sgh2`.`tbl_ur_ncplandetail`, CONSTRAINT `fk_ncpdetail_plan` FOREIGN KEY (`planId`) REFERENCES `tbl_ur_ncplan` (`planId`) ON DELETE CASCADE ON UPDATE CASCADE)
+[2025-05-26 09:51:01]   เกิดข้อผิดพลาดในการประมวลผลแผน NC0103: Cannot add or update a child row: a foreign key constraint fails (`sgh2`.`tbl_ur_ncplandetail`, CONSTRAINT `fk_ncpdetail_plan` FOREIGN KEY (`planId`) REFERENCES `tbl_ur_ncplan` (`planId`) ON DELETE CASCADE ON UPDATE CASCADE)
+[2025-05-26 09:51:01]   เกิดข้อผิดพลาดในการประมวลผลแผน NC0301: Cannot add or update a child row: a foreign key constraint fails (`sgh2`.`tbl_ur_ncplandetail`, CONSTRAINT `fk_ncpdetail_plan` FOREIGN KEY (`planId`) REFERENCES `tbl_ur_ncplan` (`planId`) ON DELETE CASCADE ON UPDATE CASCADE)
+[2025-05-26 11:50:58] เกิดข้อผิดพลาดในการ Auto Generate NC Plan: moment(...).tz is not a function

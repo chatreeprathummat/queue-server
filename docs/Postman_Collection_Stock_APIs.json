@@ -1,0 +1,462 @@
+{
+  "info": {
+    "name": "Inventory System - Stock Department APIs",
+    "description": "ชุด API สำหรับทดสอบฟังก์ชันระบบพัสดุครบถ้วน",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000/api/stock",
+      "type": "string"
+    },
+    {
+      "key": "auth_token",
+      "value": "your_jwt_token_here",
+      "type": "string"
+    },
+    {
+      "key": "user_id",
+      "value": "STOCK001",
+      "type": "string"
+    },
+    {
+      "key": "draft_pr_id",
+      "value": "DPR25010001",
+      "type": "string"
+    },
+    {
+      "key": "supplier_entry_id",
+      "value": "101",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. 📋 ดูรายการที่รอดำเนินการ",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/pending-items?page=1&itemsPerPage=10",
+          "host": ["{{base_url}}"],
+          "path": ["pending-items"],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "itemsPerPage",
+              "value": "10"
+            }
+          ]
+        },
+        "description": "ดึงรายการ items ที่รอพัสดุดำเนินการ"
+      }
+    },
+    {
+      "name": "2. 📝 สร้างร่าง PR",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"source_requisition_id\": \"REQ25010001\",\n  \"source_item_sequence\": 1,\n  \"source_item_id\": 12345,\n  \n  \"detailed_specification\": \"แท็บเล็ต Paracetamol 500mg ยี่ห้อ GPO แพ็ค 10 เม็ด มีใบรับรองจาก อย. ไม่หมดอายุก่อน 2 ปี\",\n  \"estimated_unit_price\": 25.50,\n  \"estimated_total_price\": 1275.00,\n  \"suggested_supplier_id\": 15,\n  \"supplier_notes\": \"ผู้จำหน่ายหลัก ราคาดี มีใบรับรอง GMP\",\n  \n  \"pr_title\": \"ขอซื้อยา Paracetamol สำหรับแผนกอายุรกรรม\",\n  \"purpose\": \"ใช้สำหรับรักษาผู้ป่วยในแผนกอายุรกรรม\",\n  \"justification\": \"ยาเก่าใกล้หมดอายุ จำเป็นต้องเติมสต็อกเพื่อความต่อเนื่องในการรักษา\",\n  \"budget_source\": \"งบประมาณยา\",\n  \"budget_year\": \"2568\",\n  \"requested_delivery_date\": \"2025-02-15\",\n  \"delivery_location\": \"โรงพยาบาล ห้องเก็บยา ชั้น 2\",\n  \"special_requirements\": \"ต้องการใบรับรองคุณภาพ และเก็บในอุณหภูมิห้อง\",\n  \n  \"created_by_user_id\": \"{{user_id}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/create-draft-pr",
+          "host": ["{{base_url}}"],
+          "path": ["create-draft-pr"]
+        },
+        "description": "สร้างร่าง PR สำหรับ item เดียว"
+      }
+    },
+    {
+      "name": "3. ❌ ปฏิเสธรายการ",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"source_requisition_id\": \"REQ25010002\",\n  \"source_item_sequence\": 2,\n  \"source_item_id\": 12346,\n  \"reason\": \"ข้อมูลไม่ครบถ้วน ขาดรายละเอียดขนาดบรรจุและยี่ห้อที่ต้องการ กรุณาระบุข้อมูลเพิ่มเติม\",\n  \"rejected_by_user_id\": \"{{user_id}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/reject-item",
+          "host": ["{{base_url}}"],
+          "path": ["reject-item"]
+        },
+        "description": "ปฏิเสธรายการโดยพนักงานพัสดุ"
+      }
+    },
+    {
+      "name": "4. ➕ เพิ่มผู้จำหน่ายในร่าง PR",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"supplier_id\": 20,\n  \"quoted_unit_price\": 28.00,\n  \"quoted_total_price\": 1400.00,\n  \"quotation_ref\": \"QT-2025-001\",\n  \"quotation_date\": \"2025-01-10\",\n  \"delivery_lead_time\": 7,\n  \"payment_terms\": \"เครดิต 30 วัน\",\n  \"warranty_period\": \"12 เดือน\",\n  \"supplier_notes\": \"มีใบรับรอง ISO สินค้าคุณภาพสูง\",\n  \"evaluation_score\": 8.5,\n  \"evaluation_criteria\": {\n    \"quality\": 9,\n    \"price\": 7,\n    \"service\": 9,\n    \"delivery\": 8\n  },\n  \"is_recommended\": true,\n  \"recommendation_reason\": \"ราคาแข่งขันได้ คุณภาพดี\",\n  \"supplier_rank\": 1,\n  \"quote_status\": \"RECEIVED\",\n  \"quote_valid_until\": \"2025-02-28\",\n  \"contact_person\": \"คุณสมชาย ใจดี\",\n  \"contact_phone\": \"02-123-4567\",\n  \"contact_email\": \"somchai@supplier.com\",\n  \"added_by_user_id\": \"{{user_id}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/draft-pr/{{draft_pr_id}}/suppliers",
+          "host": ["{{base_url}}"],
+          "path": ["draft-pr", "{{draft_pr_id}}", "suppliers"]
+        },
+        "description": "เพิ่มผู้จำหน่ายใน draft-pr"
+      }
+    },
+    {
+      "name": "5. ➕ เพิ่มผู้จำหน่ายตัวที่ 2",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"supplier_id\": 25,\n  \"quoted_unit_price\": 29.00,\n  \"quoted_total_price\": 1450.00,\n  \"quotation_ref\": \"QT-2025-002\",\n  \"quotation_date\": \"2025-01-12\",\n  \"delivery_lead_time\": 10,\n  \"payment_terms\": \"เครดิต 15 วัน\",\n  \"warranty_period\": \"6 เดือน\",\n  \"supplier_notes\": \"ผู้จำหน่ายรายใหม่ ให้ราคาแข่งขัน\",\n  \"evaluation_score\": 7.5,\n  \"evaluation_criteria\": {\n    \"quality\": 8,\n    \"price\": 6,\n    \"service\": 8,\n    \"delivery\": 7\n  },\n  \"is_recommended\": false,\n  \"recommendation_reason\": \"\",\n  \"supplier_rank\": 2,\n  \"quote_status\": \"RECEIVED\",\n  \"quote_valid_until\": \"2025-02-20\",\n  \"contact_person\": \"คุณสมหญิง ดีใจ\",\n  \"contact_phone\": \"02-987-6543\",\n  \"contact_email\": \"somying@medcenter.com\",\n  \"added_by_user_id\": \"{{user_id}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/draft-pr/{{draft_pr_id}}/suppliers",
+          "host": ["{{base_url}}"],
+          "path": ["draft-pr", "{{draft_pr_id}}", "suppliers"]
+        },
+        "description": "เพิ่มผู้จำหน่ายตัวที่ 2 เพื่อเปรียบเทียบ"
+      }
+    },
+    {
+      "name": "6. 👀 ดูรายการผู้จำหน่ายทั้งหมด",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/draft-pr/{{draft_pr_id}}/suppliers",
+          "host": ["{{base_url}}"],
+          "path": ["draft-pr", "{{draft_pr_id}}", "suppliers"]
+        },
+        "description": "ดูรายการผู้จำหน่ายทั้งหมดในร่าง PR"
+      }
+    },
+    {
+      "name": "7. 📊 เปรียบเทียบราคาผู้จำหน่าย",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/draft-pr/{{draft_pr_id}}/compare-prices",
+          "host": ["{{base_url}}"],
+          "path": ["draft-pr", "{{draft_pr_id}}", "compare-prices"]
+        },
+        "description": "เปรียบเทียบราคาและให้คะแนนผู้จำหน่าย"
+      }
+    },
+    {
+      "name": "8. 🎯 แนะนำผู้จำหน่ายแบบ BALANCED",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"criteria\": \"BALANCED\",\n  \"recommended_by_user_id\": \"{{user_id}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/draft-pr/{{draft_pr_id}}/recommend-supplier",
+          "host": ["{{base_url}}"],
+          "path": ["draft-pr", "{{draft_pr_id}}", "recommend-supplier"]
+        },
+        "description": "แนะนำผู้จำหน่ายตามเกณฑ์ BALANCED (สมดุล)"
+      }
+    },
+    {
+      "name": "9. 🎯 แนะนำผู้จำหน่ายแบบ PRICE",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"criteria\": \"PRICE\",\n  \"recommended_by_user_id\": \"{{user_id}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/draft-pr/{{draft_pr_id}}/recommend-supplier",
+          "host": ["{{base_url}}"],
+          "path": ["draft-pr", "{{draft_pr_id}}", "recommend-supplier"]
+        },
+        "description": "แนะนำผู้จำหน่ายตามเกณฑ์ PRICE (ราคาถูกที่สุด)"
+      }
+    },
+    {
+      "name": "10. ✏️ แก้ไขข้อมูลผู้จำหน่าย",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"quoted_unit_price\": 26.50,\n  \"quoted_total_price\": 1325.00,\n  \"quotation_ref\": \"QT-2025-001-REV1\",\n  \"delivery_lead_time\": 5,\n  \"evaluation_score\": 9.0,\n  \"is_recommended\": true,\n  \"recommendation_reason\": \"ปรับราคาลงได้ และส่งเร็วขึ้น\",\n  \"supplier_rank\": 1,\n  \"quote_status\": \"RECEIVED\",\n  \"contact_phone\": \"02-123-4568\",\n  \"updated_by_user_id\": \"{{user_id}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/draft-pr/{{draft_pr_id}}/suppliers/{{supplier_entry_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["draft-pr", "{{draft_pr_id}}", "suppliers", "{{supplier_entry_id}}"]
+        },
+        "description": "แก้ไขข้อมูลผู้จำหน่าย"
+      }
+    },
+    {
+      "name": "11. 🔄 อัพเดทข้อมูลสรุปผู้จำหน่าย",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/draft-pr/{{draft_pr_id}}/update-summary",
+          "host": ["{{base_url}}"],
+          "path": ["draft-pr", "{{draft_pr_id}}", "update-summary"]
+        },
+        "description": "อัพเดทข้อมูลสรุปผู้จำหน่ายแบบ Manual"
+      }
+    },
+    {
+      "name": "12. 📋 หัวหน้าพัสดุดูรายการร่าง PR ที่รออนุมัติ",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/manager/pending-draft-prs?page=1&itemsPerPage=10",
+          "host": ["{{base_url}}"],
+          "path": ["manager", "pending-draft-prs"],
+          "query": [
+            {
+              "key": "page",
+              "value": "1"
+            },
+            {
+              "key": "itemsPerPage",
+              "value": "10"
+            }
+          ]
+        },
+        "description": "หัวหน้าพัสดุดูรายการร่าง PR ที่รออนุมัติ"
+      }
+    },
+    {
+      "name": "13. ✅ หัวหน้าพัสดุอนุมัติร่าง PR",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"comment\": \"อนุมัติร่าง PR ราคาเหมาะสม ส่งไปแผนกจัดซื้อดำเนินการต่อ\",\n  \"approved_by_user_id\": \"STOCK_MGR01\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/manager/approve-draft-pr/{{draft_pr_id}}",
+          "host": ["{{base_url}}"],
+          "path": ["manager", "approve-draft-pr", "{{draft_pr_id}}"]
+        },
+        "description": "หัวหน้าพัสดุอนุมัติร่าง PR และส่งไปแผนกจัดซื้อ"
+      }
+    },
+    {
+      "name": "14. 🗑️ ลบผู้จำหน่าย",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{auth_token}}",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"remove_reason\": \"ผู้จำหน่ายไม่สามารถส่งของได้ตามกำหนด\",\n  \"removed_by_user_id\": \"{{user_id}}\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": {
+          "raw": "{{base_url}}/draft-pr/{{draft_pr_id}}/suppliers/102",
+          "host": ["{{base_url}}"],
+          "path": ["draft-pr", "{{draft_pr_id}}", "suppliers", "102"]
+        },
+        "description": "ลบผู้จำหน่ายออกจาก draft-pr (ใช้ ID 102 เป็นตัวอย่าง)"
+      }
+    }
+  ]
+} 

@@ -1,0 +1,2 @@
+{"level":"info","message":"HTTP Server เริ่มต้น","port":"5009","timestamp":"2025-06-21 15:11:22","type":"HTTP"}
+{"level":"info","message":"HTTPS Server เริ่มต้น","port":5443,"timestamp":"2025-06-21 15:11:22","type":"HTTPS"}
