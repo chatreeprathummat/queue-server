@@ -66,11 +66,11 @@ const config: Config = {
     mysql_port: parseInt(process.env.NODE_MYSQL_PORT || '3307', 10),
     //------For HTTPS----------
     https_enabled: (process.env.HTTPS_ENABLED || 'false').toLowerCase() === 'true',
-    https_port: parseInt(process.env.HTTPS_PORT || '5443', 10),
+    https_port: parseInt(process.env.HTTPS_PORT || '5556', 10),
     cert_path: process.env.CERT_PATH || './config/certs/cert.pem',
     key_path: process.env.KEY_PATH || './config/certs/key.pem',
     //------ for HTTP server----------
-    http_port: parseInt(process.env.HTTP_PORT || '5009', 10),
+    http_port: parseInt(process.env.HTTP_PORT || '5555', 10),
 };
 
 // Colors for console output
@@ -97,8 +97,8 @@ console.log(`NODE_MYSQL_PORT: "${process.env.NODE_MYSQL_PORT || 'ไม่ได
 console.log(`NODE_MYSQL_USER: "${process.env.NODE_MYSQL_USER || 'ไม่ได้ตั้งค่า'}"`);
 console.log(`NODE_MYSQL_PASSWORD: "${process.env.NODE_MYSQL_PASSWORD ? '[SET]' : 'ไม่ได้ตั้งค่า'}"`);
 console.log(`NODE_MYSQL_DATABASE: "${process.env.NODE_MYSQL_DATABASE || 'ไม่ได้ตั้งค่า'}"`);
-console.log(`HTTP_PORT: ${process.env.HTTP_PORT || 'ไม่ได้ตั้งค่า (ใช้ 5009)'}`);
-console.log(`HTTPS_PORT: ${process.env.HTTPS_PORT || 'ไม่ได้ตั้งค่า (ใช้ 5443)'}`);
+console.log(`HTTP_PORT: ${process.env.HTTP_PORT || 'ไม่ได้ตั้งค่า (ใช้ 5555)'}`);
+console.log(`HTTPS_PORT: ${process.env.HTTPS_PORT || 'ไม่ได้ตั้งค่า (ใช้ 5556)'}`);
 console.log(`HTTPS_ENABLED (raw): "${process.env.HTTPS_ENABLED}"`);
 console.log(`HTTPS_ENABLED (parsed): ${(process.env.HTTPS_ENABLED || 'false').toLowerCase() === 'true'}`);
 console.log('=====================================\n');

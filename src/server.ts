@@ -253,7 +253,7 @@ readdirSync('./src/routes').forEach((file: string) => {
       const routeModule = require('./routes/' + file);
       // ตรวจสอบว่าเป็น ES6 module (default export) หรือ CommonJS
       const router = routeModule.default || routeModule;
-      app.use('/api/inv', router);
+      app.use('/api/queue', router);
 
       // if (typeof router === 'function') {
       //   app.use('/api/inv', router);
