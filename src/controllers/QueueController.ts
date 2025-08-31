@@ -209,25 +209,19 @@ const routeStatusName = rows[0]?.status_name || '';
 /**
  * POST /api/queue/display/calling/opd/:opdCode/room/:roomCode
  * - เส้นเดียว จบทั้ง "เช็ค" และ "ดึง"
- * - ถ้าไม่มีอะไรใหม่: ตอบ 304 (หรือ 204) เบามาก
+ * - ถ้ามีข้อมูลตอบ 200 พร้อมข้อมูล
+ * - ถ้าไม่มีอะไรใหม่: 204
  * - ถ้ามีของใหม่: POP + DELETE (atomic) แล้วคืน JSON
- *
- * กลไก:
- * 1) อ่าน If-None-Match จาก FE (ETag รอบก่อน)
- * 2) คำนวณ ETag ปัจจุบันจากสรุปเบา ๆ ของตาราง display (COUNT, MAX(id), MAX(ts))
- * 3) ถ้า ETag ตรงกัน → 304 Not Modified (ไม่มี payload)
- * 4) ถ้า ETag เปลี่ยน → เข้า transaction: SELECT ... FOR UPDATE + DELETE → คืนข้อมูลคิว และแนบ ETag ใหม่
  */
 export const roomCallingPollAndPop = wrapController(async (req: Request, res: Response) => {
-
+  // ✅ ตรวจสอบพารามิเตอร์จาก body
   const schema = Joi.object({
-    opdCode:  Joi.string().trim().max(10).required()
+    opdCode:  Joi.string().trim().required()
       .messages({ 'any.required':'ต้องระบุ OPD', 'string.empty':'OPD ห้ามว่าง' }),
-    roomCode: Joi.string().trim().max(2).required()
+    roomCode: Joi.string().trim().required()
       .messages({ 'any.required':'ต้องระบุรหัสห้องตรวจ', 'string.empty':'รหัสห้องตรวจห้ามว่าง' }),
   });
-
-  const { error, value } = schema.validate(req.params, { abortEarly:false });
+  const { error, value } = schema.validate(req.body, { abortEarly:false });
   if (error) {
     return res.status(400).json({
       success: false,
@@ -235,59 +229,22 @@ export const roomCallingPollAndPop = wrapController(async (req: Request, res: Re
       errors: error.details.map(d => ({ field: d.path.join('.'), message: d.message }))
     });
   }
+  const { opdCode, roomCode } = value as { opdCode: string; roomCode: string };
 
-  const { opdCode, roomCode } = value;     // ← ใช้ค่าที่ผ่านการ validate แล้ว
   const db = ManagementDB.getInstance();
 
-  // ------------------------------------------------------------------
-  // STEP 1: คำนวณ "ลายเซ็น" (signature) ของคิวในห้องนี้แบบเบา ๆ
-  //   - ไม่ดึงทั้งตาราง (ประหยัดแบนด์วิธ/CPU)
-  //   - ควรวาง index: (opd_code, room_code, datetime_stamp), (opd_code, room_code, id)
-  // ------------------------------------------------------------------
-  const sigSql = `
-    SELECT 
-      COUNT(*)       AS cnt,
-      COALESCE(MAX(id), 0) AS max_id,
-      COALESCE(MAX(datetime_stamp), '1970-01-01 00:00:00') AS max_ts
+  // STEP 1: เช็คว่ามีคิวหรือไม่ (คิวห้องตรวจที่รอแสดง)
+  const countSql = `
+    SELECT COUNT(*) AS cnt
     FROM tbl_queue_display
-    WHERE opd_code = ? 
+    WHERE opd_code = ?
       AND room_code = ?
   `;
-  const [sigRow] = await db.executeQuery(sigSql, [opdCode, roomCode]) as any[];
-  const cnt   = Number(sigRow?.cnt ?? 0);
-  const maxId = Number(sigRow?.max_id ?? 0);
-  const maxTs = String(sigRow?.max_ts ?? '1970-01-01 00:00:00');
+  const [sig] = await db.executeQuery(countSql, [opdCode, roomCode]) as any[];
+  if (!Number(sig?.cnt ?? 0)) return res.status(204).end(); // ❌ ไม่มีคิว → 204
 
-  // สร้าง ETag ปัจจุบันจาก signature (ง่าย ติดตามการเปลี่ยนแปลงได้ดี)
-  const currentETag = `"${cnt}:${maxId}:${maxTs}"`;
-  res.setHeader('ETag', currentETag);          // ให้ FE เก็บไว้ใช้รอบต่อไป
-  res.setHeader('Cache-Control', 'no-store');  // บังคับ conditional request ทำงานถูกต้อง
-
-  // ------------------------------------------------------------------
-  // STEP 2: ถ้า FE ส่ง If-None-Match มาและ "ตรง" กับ ETag ปัจจุบัน → ไม่มีอะไรใหม่
-  //   - ตอบ 304 Not Modified เพื่อไม่ส่ง body เลย (เบาสุด)
-  //   - หมายเหตุ: ถ้าอยากใช้ 204 ก็ได้ แต่ 304 เข้าคอนเซ็ปต์ conditional GET/POST ได้ดี
-  // ------------------------------------------------------------------
-  const ifNoneMatch = req.headers['if-none-match'];
-  if (ifNoneMatch && ifNoneMatch === currentETag) {
-    return res.status(304).end();
-  }
-
-  // ถ้า signature ชี้ว่า "ไม่มีคิวเลย" (cnt=0) ก็คืนเบา ๆ ไปเลย
-  if (cnt === 0) {
-    // 204 = No Content (ไม่มี body)
-    return res.status(204).end();
-  }
-
-  // ------------------------------------------------------------------
-  // STEP 3: มีอะไรใหม่ → ทำ POP+DELETE แบบ atomic
-  //   - เลือกคิวแรกของห้องวันนี้ (จัดลำดับเหมือนเดิม)
-  //   - ล็อกแถวด้วย FOR UPDATE กันโดนหลายหน้าจอแย่ง
-  //   - ลบออกจาก display หลังเลือกได้
-  //   - คืนข้อมูลคิว + อัปเดต ETag ใหม่หลังลบ (เพื่อให้รอบถัดไปตรวจจับได้ถูก)
-  // ------------------------------------------------------------------
+  // STEP 2: เลือกคิวตัวแรกตามลำดับ แล้วลบทิ้ง (ทำในทรานแซคชันเดียว)
   const popped = await db.executeTransaction(async (conn: any) => {
-    // เลือกคิวตัวแรก
     const [rows] = await conn.execute(
       `
       SELECT 
@@ -316,7 +273,7 @@ export const roomCallingPollAndPop = wrapController(async (req: Request, res: Re
           d.datetime_stamp,
           CAST(SUBSTRING(d.queue_text, 5, 2) AS UNSIGNED)
       LIMIT 1
-      FOR UPDATE;
+      FOR UPDATE
       `,
       [opdCode, roomCode]
     );
@@ -324,47 +281,30 @@ export const roomCallingPollAndPop = wrapController(async (req: Request, res: Re
     const row = Array.isArray(rows) ? rows[0] : rows;
     if (!row) return null;
 
-    // ลบตัวที่หยิบ (atomic)
     await conn.execute(`DELETE FROM tbl_queue_display WHERE id = ? LIMIT 1`, [row.id]);
     return row;
   });
 
-  // ไม่มีแถวให้หยิบ (race condition ระหว่างคำนวณ ETag กับ POP) → ตอบเบา ๆ
-  if (!popped) {
-    return res.status(204).end();
-  }
+  if (!popped) return res.status(204).end(); // ❌ มีคนชิงลบไปก่อน
 
-  // ------------------------------------------------------------------
-  // STEP 4: คำนวณ ETag ใหม่หลังลบ (ให้ FE เก็บเป็น baseline รอบหน้า)
-  // ------------------------------------------------------------------
-  const [afterRow] = await db.executeQuery(sigSql, [opdCode, roomCode]) as any[];
-  const aCnt   = Number(afterRow?.cnt ?? 0);
-  const aMaxId = Number(afterRow?.max_id ?? 0);
-  const aMaxTs = String(afterRow?.max_ts ?? '1970-01-01 00:00:00');
-  const afterETag = `"${aCnt}:${aMaxId}:${aMaxTs}"`;
-  res.setHeader('ETag', afterETag);
-
-  // ------------------------------------------------------------------
-  // STEP 5: ส่งข้อมูลคิวที่ถูก "เรียก" กลับแบบเล็ก กระชับ
-  // ------------------------------------------------------------------
-  const result = {
+  // STEP 3: ส่งข้อมูลคิวที่ถูกหยิบไป (รูปแบบเล็ก กระชับ)
+  const data = {
     id: Number(popped.id ?? 0),
     queueText: String(popped.queue_text || ''),
     doctorCode: String(popped.doctor_code || ''),
     doctorName: String(popped.doctor_name || ''),
     doctorDependName: String(popped.depend_name || ''),
-    dateTimeStamp: popped.datetime_stamp 
-      ? moment(popped.datetime_stamp).format('YYYY-MM-DD HH:mm:ss') 
-      : ''
+    dateTimeStamp: popped.datetime_stamp ? moment(popped.datetime_stamp).format('YYYY-MM-DD HH:mm:ss') : ''
   };
 
   return res.status(200).json({
     success: true,
     opdCode,
     roomCode,
-    data: result
+    data
   });
 }, 8000);
+
 
 
 /** ===========================================
@@ -536,19 +476,18 @@ export const rxCounterDisplay = wrapController(async (req: Request, res: Respons
 
 /* 
 ==================================================
-แบบที่ 1 (1 เส้น/1 จอ → คืนข้อมูล 2 ช่องพร้อมกัน)
-POST /api/queue/rx/calling/:opdCode/:displayCode
+แบบที่ 1 ห้องรับยา (1 จอ/ส่งผลได้ 2 ช่องในคำขอเดียว)
 ==================================================
 */
 export const rxCallingPollAndPopBoth = wrapController(async (req: Request, res: Response) => {
-  // validate
+  // ✅ ตรวจสอบพารามิเตอร์จาก body
   const schema = Joi.object({
     opdCode:     Joi.string().trim().max(10).required()
                   .messages({ 'any.required':'ต้องระบุ OPD', 'string.empty':'OPD ห้ามว่าง' }),
     displayCode: Joi.number().integer().required()
                   .messages({ 'any.required':'ต้องระบุ displayCode', 'number.base':'displayCode ต้องเป็นตัวเลข' }),
   });
-  const { error, value } = schema.validate(req.params, { abortEarly:false });
+  const { error, value } = schema.validate(req.body, { abortEarly:false });
   if (error) {
     return res.status(400).json({
       success:false,
@@ -560,7 +499,7 @@ export const rxCallingPollAndPopBoth = wrapController(async (req: Request, res: 
 
   const db = ManagementDB.getInstance();
 
-  // STEP 1: มีคิวช่องใดช่องหนึ่งไหม?
+  // STEP 1: เช็คว่ามีคิวช่องใดช่องหนึ่งไหม (สถานะ 22 = กำลังเรียกรับยา)
   const sigSql = `
     SELECT COUNT(*) AS cnt
     FROM tbl_queue_display
@@ -570,9 +509,9 @@ export const rxCallingPollAndPopBoth = wrapController(async (req: Request, res: 
       AND channel IN (1,2)
   `;
   const [sig] = await db.executeQuery(sigSql, [opdCode, displayCode]) as any[];
-  if (!Number(sig?.cnt ?? 0)) return res.status(204).end();
+  if (!Number(sig?.cnt ?? 0)) return res.status(204).end(); // ❌ ไม่มีคิวเลย
 
-  // STEP 2: POP+DELETE (atomic) แยกสองช่องในทรานแซคชันเดียว
+  // STEP 2: POP+DELETE แยกสองช่องในทรานแซคชันเดียว
   type RxRow = { id:number; queue_text:string; datetime_stamp:string|Date; channel:number|null; status_name?:string|null; };
   const selectOneSql = (ch: number) => `
     SELECT d.id, d.queue_text, d.datetime_stamp, d.channel,
@@ -600,8 +539,7 @@ export const rxCallingPollAndPopBoth = wrapController(async (req: Request, res: 
     return { row1, row2 };
   });
 
-  // ถ้าถูกชิงลบระหว่างทางและไม่เหลือทั้งสองช่อง → 204
-  if (!popped.row1 && !popped.row2) return res.status(204).end();
+  if (!popped.row1 && !popped.row2) return res.status(204).end(); // ❌ ไม่มีเหลือเลย
 
   const mapItem = (r: RxRow | null) => r ? ({
     id: Number(r.id),
@@ -616,19 +554,22 @@ export const rxCallingPollAndPopBoth = wrapController(async (req: Request, res: 
     opdCode,
     displayCode,
     data: {
-      ch1: mapItem(popped.row1),   // อาจเป็น null
-      ch2: mapItem(popped.row2),   // อาจเป็น null
+      ch1: mapItem(popped.row1),   // อาจเป็น null ถ้าไม่มีคิวในช่อง 1
+      ch2: mapItem(popped.row2),   // อาจเป็น null ถ้าไม่มีคิวในช่อง 2
     }
   });
 }, 15000);
 
+
 /* 
 ==================================================
-แบบที่ 2 (ระบุช่อง → ทำงานอิสระ)
-POST /api/queue/rx/calling/:opdCode/:displayCode/:channelCode
+แบบที่ 2 ห้องรับยา (ระบุช่องเดียว — อิสระต่อกัน)
 ==================================================
 */
+// POST /api/queue/rx/calling/single
+// body: { opdCode: string, displayCode: number, channelCode: number }
 export const rxCallingPollAndPopSingle = wrapController(async (req: Request, res: Response) => {
+  // ✅ ตรวจสอบพารามิเตอร์จาก body
   const schema = Joi.object({
     opdCode:     Joi.string().trim().max(10).required()
                   .messages({ 'any.required':'ต้องระบุ OPD', 'string.empty':'OPD ห้ามว่าง' }),
@@ -637,7 +578,7 @@ export const rxCallingPollAndPopSingle = wrapController(async (req: Request, res
     channelCode: Joi.number().integer().required()
                   .messages({ 'any.required':'ต้องระบุ channelCode', 'number.base':'channelCode ต้องเป็นตัวเลข' }),
   });
-  const { error, value } = schema.validate(req.params, { abortEarly:false });
+  const { error, value } = schema.validate(req.body, { abortEarly:false });
   if (error) {
     return res.status(400).json({
       success:false,
@@ -645,11 +586,11 @@ export const rxCallingPollAndPopSingle = wrapController(async (req: Request, res
       errors: error.details.map(d => ({ field: d.path.join('.'), message: d.message }))
     });
   }
-  const { opdCode, displayCode, channelCode } = value as { opdCode: string; displayCode: number; channelCode: number; };
+  const { opdCode, displayCode, channelCode } = value as { opdCode: string; displayCode: number; channelCode: number };
 
   const db = ManagementDB.getInstance();
 
-  // STEP 1: มีคิวช่องนี้ไหม?
+  // STEP 1: เช็คว่ามีคิวช่องนี้ไหม
   const sigSql = `
     SELECT COUNT(*) AS cnt
     FROM tbl_queue_display
@@ -659,9 +600,9 @@ export const rxCallingPollAndPopSingle = wrapController(async (req: Request, res
       AND channel = ?
   `;
   const [sig] = await db.executeQuery(sigSql, [opdCode, displayCode, channelCode]) as any[];
-  if (!Number(sig?.cnt ?? 0)) return res.status(204).end();
+  if (!Number(sig?.cnt ?? 0)) return res.status(204).end(); // ❌ ไม่มีคิว
 
-  // STEP 2: POP+DELETE (atomic) เฉพาะช่อง
+  // STEP 2: POP+DELETE เฉพาะช่องนี้
   type RxRow = { id:number; queue_text:string; datetime_stamp:string|Date; channel:number|null; status_name?:string|null; };
   const popped: RxRow | null = await db.executeTransaction(async (conn: any) => {
     const [rows]: [RxRow[]] = await conn.execute(
@@ -689,7 +630,7 @@ export const rxCallingPollAndPopSingle = wrapController(async (req: Request, res
     return row;
   });
 
-  if (!popped) return res.status(204).end();
+  if (!popped) return res.status(204).end(); // ❌ ไม่มีคิวแล้ว
 
   const data = {
     id: Number(popped.id),
@@ -707,3 +648,68 @@ export const rxCallingPollAndPopSingle = wrapController(async (req: Request, res
     data
   });
 }, 10000);
+
+/** 
+ * =================================================
+ * ข้อความประชาสัมพันธ์หน้าจอห้องยา
+ * =================================================
+ */
+export const getMarqueeByOpdPost = wrapController(async (req: Request, res: Response) => {
+  // ✅ ตรวจสอบพารามิเตอร์จาก body
+  const schema = Joi.object({
+    opdCode: Joi.string().trim().max(10).required()
+      .messages({ 'any.required':'ต้องระบุ OPD', 'string.empty':'OPD ห้ามว่าง' }),
+  });
+
+const { error, value } = schema.validate(req.params, { abortEarly:false });
+  if (error) {
+    return res.status(400).json({
+      success: false,
+      message: 'พารามิเตอร์ไม่ถูกต้อง',
+      errors: error.details.map(d => ({ field: d.path.join('.'), message: d.message }))
+    });
+  }
+
+  const { opdCode } = value as { opdCode: string };
+  const db = ManagementDB.getInstance();
+
+  // 🔎 ดึงค่าล่าสุดของ OPD นี้ (ถ้าไม่มีจะคืนค่าเริ่มต้น แต่อย่างไรก็ตอบ 200)
+  const sql = `
+    SELECT 
+      COALESCE(marquee_text,'')                 AS marquee_text,
+      UPPER(COALESCE(marquee_enable_yn,'N'))    AS enable_yn,
+      UPPER(COALESCE(auto_reset_yn,'N'))        AS auto_reset_yn,
+      COALESCE(last_work_date, CURDATE())       AS last_work_date,
+      COALESCE(updated_at, created_at)          AS updated_at
+    FROM tbl_queue_config
+    WHERE opd_code = ?
+    ORDER BY updated_at DESC, created_at DESC
+    LIMIT 1
+  `;
+  const rows = await db.executeQuery(sql, [opdCode]);
+  const row  = Array.isArray(rows) ? rows[0] : rows;
+
+  // 🧰 สร้างผลลัพธ์แบบมาตรฐานเสมอ (ไม่มีข้อมูลก็ใช้ค่า default)
+  const enableYN   = String(row?.enable_yn || 'N');
+  const enabled    = enableYN === 'Y';
+  const text       = String(row?.marquee_text || '');
+  const autoYN     = String(row?.auto_reset_yn || 'N');
+  const autoReset  = autoYN === 'Y';
+  const lastWork   = row?.last_work_date ? moment(row.last_work_date).format('YYYY-MM-DD') : moment().format('YYYY-MM-DD');
+  const updatedAt  = row?.updated_at ? moment(row.updated_at).format('YYYY-MM-DD HH:mm:ss') : '';
+
+  // ✅ เสมอ 200: ให้ FE จัดการว่าจะโชว์หรือไม่
+  return res.status(200).json({
+    success: true,
+    opdCode,
+    // enabled,          // boolean
+    enableYN,         // 'Y' | 'N'
+    text,             // ข้อความตัววิ่ง (อาจว่างได้)
+    autoResetYN: autoYN,
+    lastWorkDate: lastWork,
+    // meta: {
+    //   autoReset:  autoReset,
+    //   updatedAt: updatedAt
+    // }
+  });
+}, 5000);

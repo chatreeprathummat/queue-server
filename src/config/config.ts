@@ -6,10 +6,10 @@ const dotenv = require('dotenv') as any;
 
 // Interface for configuration object
 interface Config {
-  oracle_user: string;
-  oracle_password: string;
-  connectString: string;
-  libdir: string;
+//   oracle_user: string;
+//   oracle_password: string;
+//   connectString: string;
+//   libdir: string;
   host: string;
   mysql_user: string;
   mysql_password: string;
@@ -54,10 +54,10 @@ if (missingEnvVars.length > 0) {
 
 const config: Config = {
     //------For Oracle---------
-    oracle_user: process.env.NODE_ORACLEDB_USER || '',
-    oracle_password: process.env.NODE_ORACLEDB_PASSWORD || '',
-    connectString: process.env.NODE_ORACLEDB_CONNECTIONSTRING || '',
-    libdir: process.env.NODE_ORACLEDB_LIBDIR || '',
+    // oracle_user: process.env.NODE_ORACLEDB_USER || '',
+    // oracle_password: process.env.NODE_ORACLEDB_PASSWORD || '',
+    // connectString: process.env.NODE_ORACLEDB_CONNECTIONSTRING || '',
+    // libdir: process.env.NODE_ORACLEDB_LIBDIR || '',
     //------For mysql----------
     host: process.env.NODE_MYSQL_HOST || '',
     mysql_user: process.env.NODE_MYSQL_USER || '',

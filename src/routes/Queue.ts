@@ -8,7 +8,8 @@ const {
   drugPreparingList,
   rxCounterDisplay,
   rxCallingPollAndPopBoth,
-  rxCallingPollAndPopSingle
+  rxCallingPollAndPopSingle,
+  getMarqueeByOpdPost
 } = require('../controllers/QueueController');
 
 // หน้าจอหน้าห้องตรวจ
@@ -16,20 +17,22 @@ router.get('/display/:opdCode/:roomCode', screenRoomSummary);               // �
 router.get('/display/:opdCode/:roomCode/:statusId', screenRoomByStatus); // แยกตามสถานะ
 
 // ห้องตรวจดึง “ตัวแรกตามลำดับ” แล้วลบทิ้ง ในคำสั่งเดียว
-router.post('/room/calling/:opdCode/:roomCode', roomCallingPollAndPop);
+router.post('/display/room/calling', roomCallingPollAndPop);
 
 // List จัดยา
-router.get('/rx/prepare/:opdCode', drugPreparingList);
+router.get('/display/rx/prepare/:opdCode', drugPreparingList);
 
 // List คิวรอรเียกรับยา
-router.get('/rx/wait/:opdCode', rxCounterDisplay);
+router.get('/display/rx/wait/:opdCode', rxCounterDisplay);
 
 // เรียกรับยาตามช่อง: 1 เส้น/1 จอ → คืนข้อมูล 2 ช่องพร้อมกัน
-router.get('/rx/calling/:opdCode/:displayCode', rxCallingPollAndPopBoth);
+router.post('/display/rx/calling', rxCallingPollAndPopBoth);
 
 // เรียกรับยาตามช่อง: ระบุช่อง → ทำงานอิสระ
-router.post('/rx/calling/opd/:opdCode/display/:displayCode/channel/:channelCode', rxCallingPollAndPopSingle);
+router.post('/display/rx/calling/single', rxCallingPollAndPopSingle);
 
+// ข้อความประชาสัมพันธ์
+router.get('/marquee/:opdCode', getMarqueeByOpdPost);
 
 
 
