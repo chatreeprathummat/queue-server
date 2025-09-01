@@ -7,7 +7,7 @@ const { wrapController } = require("../services/logging/controllers/requestLogge
 // แปลงค่าอะไรก็ได้ให้เป็น array (กรณี DB คืนแถวเดียว)
 const asArray = (x: any) => Array.isArray(x) ? x : (x ? [x] : []);
 
-// วันที่ พ.ศ. แบบสั้น เช่น 30/08/2568
+// วันที่ พ.ศ.
 const todayBE = () => {
   const m = moment().tz('Asia/Bangkok');
   return `${m.format('DD/MM')}/${m.year() + 543}`;
@@ -23,23 +23,24 @@ type QueueItem = {
   createdAt: string; // 'YYYY-MM-DD HH:mm:ss' หรือ string ว่าง
 };
 
-/** =========================
- *  1. หน้าจอหน้าห้องตรวจ
- *  =========================
- *  - รวมทุกสถานะที่ต้องการใน 1 เส้นทาง
- *  - และมีเส้นทางย่อย แยกตามสถานะ (01,03,04)
+/* 
+================================================================
+- รวมทุกสถานะ รหัส 01/03/04
+================================================================
  */
-/** 1.1 API รวม: /display/opd/:opdCode/room/:roomCode */
 export const screenRoomSummary = wrapController(async (req: Request, res: Response) => {
-  // ✅ validate params (ไม่ใช่ body)
+  // ✅ รวม params + query เพื่อรองรับทั้ง 2 แบบการส่ง
+  const input = { ...req.params, ...req.query };
+
+  // ✅ validate
   const schema = Joi.object({
-    opdCode:  Joi.string().trim().max(10).required()
+    opdCode:  Joi.string().trim().required()
       .messages({ 'any.required':'ต้องระบุ OPD', 'string.empty':'OPD ห้ามว่าง' }),
-    roomCode: Joi.string().trim().max(2).required()
+    roomCode: Joi.string().trim().max(10).required()
       .messages({ 'any.required':'ต้องระบุรหัสห้องตรวจ', 'string.empty':'รหัสห้องตรวจห้ามว่าง' }),
   });
 
-  const { error, value } = schema.validate(req.params, { abortEarly:false });
+  const { error, value } = schema.validate(input, { abortEarly:false });
   if (error) {
     return res.status(400).json({
       success: false,
@@ -48,7 +49,7 @@ export const screenRoomSummary = wrapController(async (req: Request, res: Respon
     });
   }
 
-  const { opdCode, roomCode } = value;     // ← ใช้ค่าที่ผ่านการ validate แล้ว
+  const { opdCode, roomCode } = value as { opdCode: string; roomCode: string };
   const db = ManagementDB.getInstance();
 
   // ── แพทย์ประจำห้อง (วันนี้)
@@ -125,35 +126,30 @@ ORDER BY
   });
 }, 10000);
 
+
 /** 1.2 แยกสถานะ: /display/opd/:opdCode/room/:roomCode/status/:statusId  (statusId = 01|03|04) */
 export const screenRoomByStatus = wrapController(async (req: Request, res: Response) => {
   
-  const schema = Joi.object({
-    opdCode:  Joi.string().trim().required()
-      .messages({ 'any.required':'ต้องระบุ OPD', 'string.empty':'OPD ห้ามว่าง' }),
-    roomCode: Joi.string().trim().required()
-      .messages({ 'any.required':'ต้องระบุรหัสห้องตรวจ', 'string.empty':'รหัสห้องตรวจห้ามว่าง' }),
-    statusId: Joi.string().trim().required()
-      .messages({ 'any.required':'ต้องระบุรหัสสถานะ', 'string.empty':'รหัสสถานะห้ามว่าง' }),
-  });
-
-  const { error, value } = schema.validate(req.params, { abortEarly:false });
-  if (error) {
-    return res.status(400).json({
-      success: false,
-      message: 'พารามิเตอร์ไม่ถูกต้อง',
-      errors: error.details.map(d => ({ field: d.path.join('.'), message: d.message }))
+     // validate params
+     const schema = Joi.object({
+      opdCode:  Joi.string().trim().required()
+        .messages({ 'any.required':'ต้องระบุ OPD', 'string.empty':'OPD ห้ามว่าง' }),
+        roomCode: Joi.string().trim().required()
+          .messages({ 'any.required':'ต้องระบุรหัสห้องตรวจ', 'string.empty':'รหัสห้องตรวจห้ามว่าง' }),
+        statusId: Joi.string().trim().required()
+          .messages({ 'any.required':'ต้องระบุรหัสสถานะ', 'string.empty':'รหัสสถานะห้ามว่าง' }),
     });
-  }
-
-  const { opdCode, roomCode, statusId } = value;     // ← ใช้ค่าที่ผ่านการ validate แล้ว
-  const db = ManagementDB.getInstance();
-
-  // กันสถานะผิด (ถ้า FE ส่งมาผิด จะเลือก '01' แทน — หรือจะเปลี่ยนเป็น 400 ก็ได้)
-  // const allowed: AllowedStatus[] = ['01', '03', '04'];
-  // const status: AllowedStatus = allowed.includes(statusId as AllowedStatus)
-  //   ? (statusId as AllowedStatus)
-  //   : '01';
+    const { error, value } = schema.validate(req.body, { abortEarly:false });
+    if (error) {
+      return res.status(400).json({
+        success: false,
+        message: 'พารามิเตอร์ไม่ถูกต้อง',
+        errors: error.details.map(d => ({ field: d.path.join('.'), message: d.message }))
+      });
+    }
+    
+    const { opdCode, roomCode, statusId } = value as { opdCode: string; roomCode: string; statusId: string };
+    const db = ManagementDB.getInstance();
 
   const sql = `
     SELECT 
@@ -206,15 +202,191 @@ const routeStatusName = rows[0]?.status_name || '';
 }, 10000);
 
 
+/* 
+================================================================
+- สถานะรอเรียกตรวจ (01) + ข้อมูลแพทย์ประจำห้อง (วันนี้)
+================================================================
+*/
+export const screenRoomWaitCalled = wrapController(async (req: Request, res: Response) => {
+  // ✅ รวม params + query เพื่อรองรับทั้ง 2 แบบการส่ง
+  const input = { ...req.params, ...req.query };
+
+  // ✅ validate
+  const schema = Joi.object({
+    opdCode:  Joi.string().trim().max(10).required()
+      .messages({ 'any.required':'ต้องระบุ OPD', 'string.empty':'OPD ห้ามว่าง' }),
+    roomCode: Joi.string().trim().max(10).required() // บาง รพ. room_code อาจยาวเกิน 2 ได้
+      .messages({ 'any.required':'ต้องระบุรหัสห้องตรวจ', 'string.empty':'รหัสห้องตรวจห้ามว่าง' }),
+  });
+
+  const { error, value } = schema.validate(input, { abortEarly:false });
+  if (error) {
+    return res.status(400).json({
+      success: false,
+      message: 'พารามิเตอร์ไม่ถูกต้อง',
+      errors: error.details.map(d => ({ field: d.path.join('.'), message: d.message }))
+    });
+  }
+
+  const { opdCode, roomCode } = value as { opdCode: string; roomCode: string };
+  const db = ManagementDB.getInstance();
+
+  // ── แพทย์ประจำห้อง (วันนี้)
+  const sqlDoctor = `
+    SELECT 
+      COALESCE(doctor_name, '') AS doctor_name,
+      COALESCE(depend_name, '') AS doctor_specialty
+    FROM tbl_queue_room
+    WHERE opd_code = ? AND room_code = ? AND work_date = CURDATE()
+    ORDER BY id DESC
+    LIMIT 1
+  `;
+
+  // ── คิวสถานะ 01 ของวันนี้ + ชื่อสถานะจากตาราง status
+  const sqlQueue01 = `
+    SELECT 
+      q.q_id,
+      q.q_queue_text,
+      q.q_hn,
+      CONCAT(q.q_prename, q.q_name, ' ', q.q_surname) AS pt_name,
+      q.q_queue_status_id,
+      s.s_queue_status_name_display AS status_name,
+      q.q_date_created
+    FROM tbl_queue_transaction q
+    LEFT JOIN tbl_queue_status s 
+           ON q.q_queue_status_id = s.s_queue_status_id
+    WHERE q.q_date = CURDATE()
+      AND q.q_opd_code = ?
+      AND q.q_room_code = ?
+      AND q.q_queue_status_id = '01'
+    ORDER BY 
+      CAST(SUBSTRING(q.q_queue_text, 2, 1) AS UNSIGNED),
+      CAST(SUBSTRING(q.q_queue_text, 4, 1) AS UNSIGNED),
+      q.q_date_created,
+      CAST(SUBSTRING(q.q_queue_text, 5, 2) AS UNSIGNED)
+  `;
+
+  // ยิง query
+  const [doctorRow] = await db.executeQuery(sqlDoctor, [opdCode, roomCode]);
+  const rows = asArray(await db.executeQuery(sqlQueue01, [opdCode, roomCode]));
+
+  // mapper: กัน null ให้เป็น string ว่าง
+  const mapItem = (r: any): QueueItem => ({
+    id: Number(r.q_id ?? 0),
+    queueText: String(r.q_queue_text || ''),
+    hn: String(r.q_hn || ''),
+    patientName: String(r.pt_name || ''),
+    statusName: String(r.status_name || ''),
+    createdAt: r.q_date_created ? moment(r.q_date_created).format('YYYY-MM-DD HH:mm:ss') : ''
+  });
+
+  const waiting = rows.map(mapItem); // SQL กรองเฉพาะ 01 แล้ว ไม่ต้อง filter ซ้ำ
+
+  return res.json({
+    success: true,
+    dateTH_BE: todayBE(),
+    opdCode,
+    roomCode,
+    doctorName: String(doctorRow?.doctor_name || ''),
+    doctorSpecialty: String(doctorRow?.doctor_specialty || ''),
+    queues: { waiting } // 01
+  });
+}, 10000);
+
+
+
+/* 
+================================================================
+- รวมสถานะ: รอผล XR/LAB (04) + เรียกตรวจไม่พบ (03)
+================================================================
+*/
+export const screenRoomWaitingXRLabAndMissCalled = wrapController(async (req: Request, res: Response) => {
+  // ✅ รวม params + query เพื่อรองรับทั้ง 2 แบบการส่ง
+  const input = { ...req.params, ...req.query };
+
+  // ✅ validate
+  const schema = Joi.object({
+    opdCode:  Joi.string().trim().max(10).required()
+      .messages({ 'any.required':'ต้องระบุ OPD', 'string.empty':'OPD ห้ามว่าง' }),
+    roomCode: Joi.string().trim().max(10).required()
+      .messages({ 'any.required':'ต้องระบุรหัสห้องตรวจ', 'string.empty':'รหัสห้องตรวจห้ามว่าง' }),
+  });
+
+  const { error, value } = schema.validate(input, { abortEarly:false });
+  if (error) {
+    return res.status(400).json({
+      success: false,
+      message: 'พารามิเตอร์ไม่ถูกต้อง',
+      errors: error.details.map(d => ({ field: d.path.join('.'), message: d.message }))
+    });
+  }
+
+  const { opdCode, roomCode } = value as { opdCode: string; roomCode: string };
+  const db = ManagementDB.getInstance();
+
+  // ── คิวสถานะ 03 และ 04 ของวันนี้ + ชื่อสถานะจากตาราง status
+  const sql0304 = `
+    SELECT 
+      q.q_id,
+      q.q_queue_text,
+      q.q_hn,
+      CONCAT(q.q_prename, q.q_name, ' ', q.q_surname) AS pt_name,
+      q.q_queue_status_id,
+      s.s_queue_status_name_display AS status_name,
+      q.q_date_created
+    FROM tbl_queue_transaction q
+    LEFT JOIN tbl_queue_status s 
+           ON q.q_queue_status_id = s.s_queue_status_id
+    WHERE q.q_date = CURDATE()
+      AND q.q_opd_code = ?
+      AND q.q_room_code = ?
+      AND q.q_queue_status_id IN ('03','04')
+    ORDER BY 
+      CAST(SUBSTRING(q.q_queue_text, 2, 1) AS UNSIGNED),
+      CAST(SUBSTRING(q.q_queue_text, 4, 1) AS UNSIGNED),
+      q.q_date_created,
+      CAST(SUBSTRING(q.q_queue_text, 5, 2) AS UNSIGNED)
+  `;
+
+  const rows = asArray(await db.executeQuery(sql0304, [opdCode, roomCode]));
+
+  const mapItem = (r: any): QueueItem => ({
+    id: Number(r.q_id ?? 0),
+    queueText: String(r.q_queue_text || ''),
+    hn: String(r.q_hn || ''),
+    patientName: String(r.pt_name || ''),
+    statusName: String(r.status_name || ''),
+    createdAt: r.q_date_created ? moment(r.q_date_created).format('YYYY-MM-DD HH:mm:ss') : ''
+  });
+
+  // แยกชุดข้อมูลตามสถานะ
+  const waitingXRLab = rows.filter((r: any) => r.q_queue_status_id === '04').map(mapItem);
+  const missCalled   = rows.filter((r: any) => r.q_queue_status_id === '03').map(mapItem);
+
+  return res.json({
+    success: true,
+    dateTH_BE: todayBE(),
+    opdCode,
+    roomCode,
+    queues: {
+      waiting_xray_lab: waitingXRLab, // 04
+      miss_called:      missCalled    // 03
+    }
+  });
+}, 10000);
+
+
+
 /**
- * POST /api/queue/display/calling/opd/:opdCode/room/:roomCode
+ * ================================================================
  * - เส้นเดียว จบทั้ง "เช็ค" และ "ดึง"
  * - ถ้ามีข้อมูลตอบ 200 พร้อมข้อมูล
  * - ถ้าไม่มีอะไรใหม่: 204
  * - ถ้ามีของใหม่: POP + DELETE (atomic) แล้วคืน JSON
+ * ================================================================
  */
 export const roomCallingPollAndPop = wrapController(async (req: Request, res: Response) => {
-  // ✅ ตรวจสอบพารามิเตอร์จาก body
+  // ตรวจสอบพารามิเตอร์จาก body
   const schema = Joi.object({
     opdCode:  Joi.string().trim().required()
       .messages({ 'any.required':'ต้องระบุ OPD', 'string.empty':'OPD ห้ามว่าง' }),
@@ -241,7 +413,7 @@ export const roomCallingPollAndPop = wrapController(async (req: Request, res: Re
       AND room_code = ?
   `;
   const [sig] = await db.executeQuery(countSql, [opdCode, roomCode]) as any[];
-  if (!Number(sig?.cnt ?? 0)) return res.status(204).end(); // ❌ ไม่มีคิว → 204
+  if (!Number(sig?.cnt ?? 0)) return res.status(204).end(); // ไม่มีคิว → 204
 
   // STEP 2: เลือกคิวตัวแรกตามลำดับ แล้วลบทิ้ง (ทำในทรานแซคชันเดียว)
   const popped = await db.executeTransaction(async (conn: any) => {
@@ -285,7 +457,7 @@ export const roomCallingPollAndPop = wrapController(async (req: Request, res: Re
     return row;
   });
 
-  if (!popped) return res.status(204).end(); // ❌ มีคนชิงลบไปก่อน
+  if (!popped) return res.status(204).end(); // มีคนชิงลบไปก่อน
 
   // STEP 3: ส่งข้อมูลคิวที่ถูกหยิบไป (รูปแบบเล็ก กระชับ)
   const data = {
@@ -480,7 +652,7 @@ export const rxCounterDisplay = wrapController(async (req: Request, res: Respons
 ==================================================
 */
 export const rxCallingPollAndPopBoth = wrapController(async (req: Request, res: Response) => {
-  // ✅ ตรวจสอบพารามิเตอร์จาก body
+  // ตรวจสอบพารามิเตอร์จาก body
   const schema = Joi.object({
     opdCode:     Joi.string().trim().max(10).required()
                   .messages({ 'any.required':'ต้องระบุ OPD', 'string.empty':'OPD ห้ามว่าง' }),
@@ -509,7 +681,7 @@ export const rxCallingPollAndPopBoth = wrapController(async (req: Request, res: 
       AND channel IN (1,2)
   `;
   const [sig] = await db.executeQuery(sigSql, [opdCode, displayCode]) as any[];
-  if (!Number(sig?.cnt ?? 0)) return res.status(204).end(); // ❌ ไม่มีคิวเลย
+  if (!Number(sig?.cnt ?? 0)) return res.status(204).end(); // ไม่มีคิวเลย
 
   // STEP 2: POP+DELETE แยกสองช่องในทรานแซคชันเดียว
   type RxRow = { id:number; queue_text:string; datetime_stamp:string|Date; channel:number|null; status_name?:string|null; };
@@ -569,7 +741,7 @@ export const rxCallingPollAndPopBoth = wrapController(async (req: Request, res: 
 // POST /api/queue/rx/calling/single
 // body: { opdCode: string, displayCode: number, channelCode: number }
 export const rxCallingPollAndPopSingle = wrapController(async (req: Request, res: Response) => {
-  // ✅ ตรวจสอบพารามิเตอร์จาก body
+  // ตรวจสอบพารามิเตอร์จาก body
   const schema = Joi.object({
     opdCode:     Joi.string().trim().max(10).required()
                   .messages({ 'any.required':'ต้องระบุ OPD', 'string.empty':'OPD ห้ามว่าง' }),
@@ -600,7 +772,7 @@ export const rxCallingPollAndPopSingle = wrapController(async (req: Request, res
       AND channel = ?
   `;
   const [sig] = await db.executeQuery(sigSql, [opdCode, displayCode, channelCode]) as any[];
-  if (!Number(sig?.cnt ?? 0)) return res.status(204).end(); // ❌ ไม่มีคิว
+  if (!Number(sig?.cnt ?? 0)) return res.status(204).end(); // ม่มีคิว
 
   // STEP 2: POP+DELETE เฉพาะช่องนี้
   type RxRow = { id:number; queue_text:string; datetime_stamp:string|Date; channel:number|null; status_name?:string|null; };
@@ -630,7 +802,7 @@ export const rxCallingPollAndPopSingle = wrapController(async (req: Request, res
     return row;
   });
 
-  if (!popped) return res.status(204).end(); // ❌ ไม่มีคิวแล้ว
+  if (!popped) return res.status(204).end(); // ไม่มีคิวแล้ว
 
   const data = {
     id: Number(popped.id),
@@ -655,7 +827,7 @@ export const rxCallingPollAndPopSingle = wrapController(async (req: Request, res
  * =================================================
  */
 export const getMarqueeByOpdPost = wrapController(async (req: Request, res: Response) => {
-  // ✅ ตรวจสอบพารามิเตอร์จาก body
+  // ตรวจสอบพารามิเตอร์จาก body
   const schema = Joi.object({
     opdCode: Joi.string().trim().max(10).required()
       .messages({ 'any.required':'ต้องระบุ OPD', 'string.empty':'OPD ห้ามว่าง' }),
@@ -673,7 +845,7 @@ const { error, value } = schema.validate(req.params, { abortEarly:false });
   const { opdCode } = value as { opdCode: string };
   const db = ManagementDB.getInstance();
 
-  // 🔎 ดึงค่าล่าสุดของ OPD นี้ (ถ้าไม่มีจะคืนค่าเริ่มต้น แต่อย่างไรก็ตอบ 200)
+  // ดึงค่าล่าสุดของ OPD นี้ (ถ้าไม่มีจะคืนค่าเริ่มต้น แต่อย่างไรก็ตอบ 200)
   const sql = `
     SELECT 
       COALESCE(marquee_text,'')                 AS marquee_text,
@@ -689,7 +861,7 @@ const { error, value } = schema.validate(req.params, { abortEarly:false });
   const rows = await db.executeQuery(sql, [opdCode]);
   const row  = Array.isArray(rows) ? rows[0] : rows;
 
-  // 🧰 สร้างผลลัพธ์แบบมาตรฐานเสมอ (ไม่มีข้อมูลก็ใช้ค่า default)
+  // สร้างผลลัพธ์แบบมาตรฐานเสมอ (ไม่มีข้อมูลก็ใช้ค่า default)
   const enableYN   = String(row?.enable_yn || 'N');
   const enabled    = enableYN === 'Y';
   const text       = String(row?.marquee_text || '');

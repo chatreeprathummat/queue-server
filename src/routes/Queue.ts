@@ -4,6 +4,8 @@ const router: Router = Router();
 const {
   screenRoomSummary,
   screenRoomByStatus,
+  screenRoomWaitCalled,
+  screenRoomWaitingXRLabAndMissCalled,
   roomCallingPollAndPop,
   drugPreparingList,
   rxCounterDisplay,
@@ -12,9 +14,17 @@ const {
   getMarqueeByOpdPost
 } = require('../controllers/QueueController');
 
-// หน้าจอหน้าห้องตรวจ
-router.get('/display/:opdCode/:roomCode', screenRoomSummary);               // รวม (01/03/04)
-router.get('/display/:opdCode/:roomCode/:statusId', screenRoomByStatus); // แยกตามสถานะ
+// หน้าห้องตรวจ ทุกสถานะ รอเรียกตรวจ, รอ XR LAB, เรียกไม่พบ
+router.get('/display/room/summary/:opdCode/:roomCode', screenRoomSummary);
+
+// หน้าห้องตรวจ แบบระบุรหัสห้องตรวจ
+router.post('/display/room/status', screenRoomByStatus);
+
+// หน้าห้องตรวจ เฉพาะสถานะรอเรียกตรวจ
+router.get('/display/room/waitcalled/:opdCode/:roomCode', screenRoomWaitCalled); 
+
+// หน้าห้องตรวจ เฉพาะสถานะรอ XR LAB และเรียกไม่พบ
+router.get('/display/room/xrlabandmisscall/:opdCode/:roomCode', screenRoomWaitingXRLabAndMissCalled); 
 
 // ห้องตรวจดึง “ตัวแรกตามลำดับ” แล้วลบทิ้ง ในคำสั่งเดียว
 router.post('/display/room/calling', roomCallingPollAndPop);
@@ -33,36 +43,5 @@ router.post('/display/rx/calling/single', rxCallingPollAndPopSingle);
 
 // ข้อความประชาสัมพันธ์
 router.get('/marquee/:opdCode', getMarqueeByOpdPost);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // หน้าห้องรับยา
-// router.get('/display/rx/opd/:opdCode', rxCounterDisplay);
-
-// // เรียกคิวกำลังเรียกรับยาจาก display.id + channel
-// router.post('/rx/call', callRxByDisplayId);
-
-// // ลบคิวกำลังเรียกรับยาออกจากจอแสดงผลตาม display.id
-// router.delete('/rx/display/:id', removeRxDisplayById);
-
-// // คิวเรียกเข้าห้องตรวจ (บันทึกลง tbl_queue_display)
-// router.post('/room/call', callRoomByTransactionId);
-
-// ลบคิวเรียกเข้าห้องตรวจออกจากจอแสดงผลตาม display.id (ต้องส่ง roomCode)
-// router.delete('/room/display/:id', removeRoomDisplayById);
 
 module.exports = router;
